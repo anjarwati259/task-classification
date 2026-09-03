@@ -1,0 +1,2875 @@
+============================================================
+LOG HASIL KLASIFIKASI - 2026-09-03 16:51:46
+============================================================
+
+############################################################
+# DATASET: shoppers_diff_0
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8576, prec=0.8386, rec=0.8576, f1=0.8154, roc_auc=0.7610
+  Fold 2: acc=0.8575, prec=0.8370, rec=0.8575, f1=0.8157, roc_auc=0.7778
+  Fold 3: acc=0.8540, prec=0.8285, rec=0.8540, f1=0.8108, roc_auc=0.7543
+  Fold 4: acc=0.8528, prec=0.8273, rec=0.8528, f1=0.8064, roc_auc=0.7496
+  Fold 5: acc=0.8575, prec=0.8335, rec=0.8575, f1=0.8217, roc_auc=0.7725
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8559 | std=0.0023
+  precision : mean=0.8330 | std=0.0050
+  recall    : mean=0.8559 | std=0.0023
+  f1_score  : mean=0.8140 | std=0.0058
+  roc_auc   : mean=0.7630 | std=0.0119
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8619
+Precision : 0.8450
+Recall    : 0.8619
+F1-Score  : 0.8211
+ROC-AUC   : 0.7701
+
+Confusion Matrix:
+[[3103   32]
+ [ 479   85]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.99      0.92      3135
+           1       0.73      0.15      0.25       564
+
+    accuracy                           0.86      3699
+   macro avg       0.80      0.57      0.59      3699
+weighted avg       0.84      0.86      0.82      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8518, prec=0.8360, rec=0.8518, f1=0.7969, roc_auc=0.6329
+  Fold 2: acc=0.8563, prec=0.8436, rec=0.8563, f1=0.8076, roc_auc=0.6558
+  Fold 3: acc=0.8523, prec=0.8282, rec=0.8523, f1=0.8029, roc_auc=0.6699
+  Fold 4: acc=0.8505, prec=0.8220, rec=0.8505, f1=0.8002, roc_auc=0.6196
+  Fold 5: acc=0.8586, prec=0.8495, rec=0.8586, f1=0.8125, roc_auc=0.6827
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8539 | std=0.0034
+  precision : mean=0.8358 | std=0.0112
+  recall    : mean=0.8539 | std=0.0034
+  f1_score  : mean=0.8040 | std=0.0062
+  roc_auc   : mean=0.6522 | std=0.0259
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8581
+Precision : 0.8417
+Recall    : 0.8581
+F1-Score  : 0.8104
+ROC-AUC   : 0.6466
+
+Confusion Matrix:
+[[3113   22]
+ [ 503   61]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.73      0.11      0.19       564
+
+    accuracy                           0.86      3699
+   macro avg       0.80      0.55      0.56      3699
+weighted avg       0.84      0.86      0.81      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8390, prec=0.8009, rec=0.8390, f1=0.8086, roc_auc=0.7621
+  Fold 2: acc=0.8413, prec=0.8089, rec=0.8413, f1=0.8163, roc_auc=0.7458
+  Fold 3: acc=0.8447, prec=0.8122, rec=0.8447, f1=0.8175, roc_auc=0.7540
+  Fold 4: acc=0.8384, prec=0.8001, rec=0.8384, f1=0.8081, roc_auc=0.7341
+  Fold 5: acc=0.8528, prec=0.8256, rec=0.8528, f1=0.8275, roc_auc=0.7703
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8432 | std=0.0059
+  precision : mean=0.8095 | std=0.0103
+  recall    : mean=0.8432 | std=0.0059
+  f1_score  : mean=0.8156 | std=0.0079
+  roc_auc   : mean=0.7533 | std=0.0141
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8481
+Precision : 0.8148
+Recall    : 0.8481
+F1-Score  : 0.8197
+ROC-AUC   : 0.7640
+
+Confusion Matrix:
+[[3022  113]
+ [ 449  115]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.50      0.20      0.29       564
+
+    accuracy                           0.85      3699
+   macro avg       0.69      0.58      0.60      3699
+weighted avg       0.81      0.85      0.82      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.855868   0.832962  0.855868  0.813985  0.763042      0.002274       0.005016    0.002274      0.005774     0.011928
+1                  SVM  0.853899   0.835847  0.853899  0.804002  0.652171      0.003424       0.011166    0.003424      0.006170     0.025926
+2              XGBoost  0.843240   0.809521  0.843240  0.815598  0.753254      0.005914       0.010344    0.005914      0.007936     0.014092
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.861855   0.844963  0.861855  0.821113  0.770103
+1                  SVM  0.858070   0.841691  0.858070  0.810368  0.646601
+2              XGBoost  0.848067   0.814798  0.848067  0.819703  0.764018
+
+
+
+############################################################
+# DATASET: shoppers_diff_1
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8576, prec=0.8378, rec=0.8576, f1=0.8161, roc_auc=0.7923
+  Fold 2: acc=0.8563, prec=0.8326, rec=0.8563, f1=0.8155, roc_auc=0.7606
+  Fold 3: acc=0.8610, prec=0.8408, rec=0.8610, f1=0.8267, roc_auc=0.7598
+  Fold 4: acc=0.8552, prec=0.8302, rec=0.8552, f1=0.8143, roc_auc=0.7726
+  Fold 5: acc=0.8615, prec=0.8419, rec=0.8615, f1=0.8277, roc_auc=0.7959
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8583 | std=0.0028
+  precision : mean=0.8367 | std=0.0051
+  recall    : mean=0.8583 | std=0.0028
+  f1_score  : mean=0.8201 | std=0.0065
+  roc_auc   : mean=0.7762 | std=0.0171
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8627
+Precision : 0.8454
+Recall    : 0.8627
+F1-Score  : 0.8236
+ROC-AUC   : 0.7743
+
+Confusion Matrix:
+[[3100   35]
+ [ 473   91]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.99      0.92      3135
+           1       0.72      0.16      0.26       564
+
+    accuracy                           0.86      3699
+   macro avg       0.79      0.58      0.59      3699
+weighted avg       0.85      0.86      0.82      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8523, prec=0.8283, rec=0.8523, f1=0.8030, roc_auc=0.6736
+  Fold 2: acc=0.8598, prec=0.8530, rec=0.8598, f1=0.8137, roc_auc=0.6326
+  Fold 3: acc=0.8627, prec=0.8628, rec=0.8627, f1=0.8183, roc_auc=0.6823
+  Fold 4: acc=0.8534, prec=0.8288, rec=0.8534, f1=0.8075, roc_auc=0.6707
+  Fold 5: acc=0.8638, prec=0.8562, rec=0.8638, f1=0.8239, roc_auc=0.7087
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8584 | std=0.0053
+  precision : mean=0.8458 | std=0.0162
+  recall    : mean=0.8584 | std=0.0053
+  f1_score  : mean=0.8133 | std=0.0083
+  roc_auc   : mean=0.6736 | std=0.0274
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8624
+Precision : 0.8563
+Recall    : 0.8624
+F1-Score  : 0.8168
+ROC-AUC   : 0.6520
+
+Confusion Matrix:
+[[3119   16]
+ [ 493   71]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.82      0.13      0.22       564
+
+    accuracy                           0.86      3699
+   macro avg       0.84      0.56      0.57      3699
+weighted avg       0.86      0.86      0.82      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8402, prec=0.8038, rec=0.8402, f1=0.8111, roc_auc=0.7631
+  Fold 2: acc=0.8470, prec=0.8184, rec=0.8470, f1=0.8240, roc_auc=0.7711
+  Fold 3: acc=0.8424, prec=0.8135, rec=0.8424, f1=0.8207, roc_auc=0.7752
+  Fold 4: acc=0.8517, prec=0.8250, rec=0.8517, f1=0.8285, roc_auc=0.7834
+  Fold 5: acc=0.8557, prec=0.8319, rec=0.8557, f1=0.8348, roc_auc=0.7849
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8474 | std=0.0064
+  precision : mean=0.8185 | std=0.0107
+  recall    : mean=0.8474 | std=0.0064
+  f1_score  : mean=0.8238 | std=0.0089
+  roc_auc   : mean=0.7755 | std=0.0090
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8467
+Precision : 0.8126
+Recall    : 0.8467
+F1-Score  : 0.8182
+ROC-AUC   : 0.7537
+
+Confusion Matrix:
+[[3019  116]
+ [ 451  113]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.49      0.20      0.28       564
+
+    accuracy                           0.85      3699
+   macro avg       0.68      0.58      0.60      3699
+weighted avg       0.81      0.85      0.82      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.858302   0.836685  0.858302  0.820058  0.776238      0.002821       0.005094    0.002821      0.006536     0.017102
+1                  SVM  0.858418   0.845823  0.858418  0.813269  0.673597      0.005279       0.016162    0.005279      0.008309     0.027361
+2              XGBoost  0.847411   0.818516  0.847411  0.823804  0.775529      0.006420       0.010745    0.006420      0.008869     0.008994
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.862666   0.845449  0.862666  0.823560  0.774305
+1                  SVM  0.862395   0.856280  0.862395  0.816847  0.651953
+2              XGBoost  0.846715   0.812610  0.846715  0.818225  0.753710
+
+
+
+############################################################
+# DATASET: shoppers_diff_2
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8541, prec=0.8285, rec=0.8541, f1=0.8109, roc_auc=0.7500
+  Fold 2: acc=0.8528, prec=0.8231, rec=0.8528, f1=0.8118, roc_auc=0.7727
+  Fold 3: acc=0.8523, prec=0.8233, rec=0.8523, f1=0.8089, roc_auc=0.7523
+  Fold 4: acc=0.8528, prec=0.8256, rec=0.8528, f1=0.8086, roc_auc=0.7608
+  Fold 5: acc=0.8563, prec=0.8345, rec=0.8563, f1=0.8145, roc_auc=0.7669
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8537 | std=0.0016
+  precision : mean=0.8270 | std=0.0047
+  recall    : mean=0.8537 | std=0.0016
+  f1_score  : mean=0.8109 | std=0.0024
+  roc_auc   : mean=0.7605 | std=0.0096
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8535
+Precision : 0.8218
+Recall    : 0.8535
+F1-Score  : 0.8080
+ROC-AUC   : 0.7597
+
+Confusion Matrix:
+[[3094   41]
+ [ 501   63]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.61      0.11      0.19       564
+
+    accuracy                           0.85      3699
+   macro avg       0.73      0.55      0.55      3699
+weighted avg       0.82      0.85      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8552, prec=0.8548, rec=0.8552, f1=0.8016, roc_auc=0.6800
+  Fold 2: acc=0.8528, prec=0.8409, rec=0.8528, f1=0.7979, roc_auc=0.6346
+  Fold 3: acc=0.8505, prec=0.8262, rec=0.8505, f1=0.7969, roc_auc=0.6319
+  Fold 4: acc=0.8523, prec=0.8377, rec=0.8523, f1=0.7980, roc_auc=0.6514
+  Fold 5: acc=0.8540, prec=0.8484, rec=0.8540, f1=0.7999, roc_auc=0.6362
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8530 | std=0.0018
+  precision : mean=0.8416 | std=0.0109
+  recall    : mean=0.8530 | std=0.0018
+  f1_score  : mean=0.7989 | std=0.0019
+  roc_auc   : mean=0.6468 | std=0.0201
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8540
+Precision : 0.8319
+Recall    : 0.8540
+F1-Score  : 0.8009
+ROC-AUC   : 0.6575
+
+Confusion Matrix:
+[[3116   19]
+ [ 521   43]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.69      0.08      0.14       564
+
+    accuracy                           0.85      3699
+   macro avg       0.78      0.54      0.53      3699
+weighted avg       0.83      0.85      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8448, prec=0.8086, rec=0.8448, f1=0.8121, roc_auc=0.7345
+  Fold 2: acc=0.8459, prec=0.8112, rec=0.8459, f1=0.8149, roc_auc=0.7626
+  Fold 3: acc=0.8384, prec=0.8011, rec=0.8384, f1=0.8092, roc_auc=0.7536
+  Fold 4: acc=0.8366, prec=0.7952, rec=0.8366, f1=0.8040, roc_auc=0.7364
+  Fold 5: acc=0.8395, prec=0.7991, rec=0.8395, f1=0.8060, roc_auc=0.7258
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8410 | std=0.0041
+  precision : mean=0.8030 | std=0.0067
+  recall    : mean=0.8410 | std=0.0041
+  f1_score  : mean=0.8092 | std=0.0044
+  roc_auc   : mean=0.7426 | std=0.0151
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8378
+Precision : 0.7994
+Recall    : 0.8378
+F1-Score  : 0.8094
+ROC-AUC   : 0.7610
+
+Confusion Matrix:
+[[2996  139]
+ [ 461  103]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.43      0.18      0.26       564
+
+    accuracy                           0.84      3699
+   macro avg       0.65      0.57      0.58      3699
+weighted avg       0.80      0.84      0.81      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.853667   0.826992  0.853667  0.810910  0.760533      0.001623       0.004713    0.001623      0.002400     0.009592
+1                  SVM  0.852972   0.841615  0.852972  0.798853  0.646804      0.001784       0.010858    0.001784      0.001893     0.020059
+2              XGBoost  0.841038   0.803023  0.841038  0.809228  0.742618      0.004089       0.006691    0.004089      0.004433     0.015056
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.853474   0.821779  0.853474  0.808031  0.759655
+1                  SVM  0.854015   0.831866  0.854015  0.800891  0.657536
+2              XGBoost  0.837794   0.799402  0.837794  0.809355  0.760964
+
+
+
+############################################################
+# DATASET: shoppers_diff_3
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8593, prec=0.8463, rec=0.8593, f1=0.8159, roc_auc=0.7721
+  Fold 2: acc=0.8563, prec=0.8344, rec=0.8563, f1=0.8135, roc_auc=0.7801
+  Fold 3: acc=0.8546, prec=0.8299, rec=0.8546, f1=0.8119, roc_auc=0.7370
+  Fold 4: acc=0.8517, prec=0.8248, rec=0.8517, f1=0.8033, roc_auc=0.7783
+  Fold 5: acc=0.8505, prec=0.8180, rec=0.8505, f1=0.8130, roc_auc=0.7575
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8545 | std=0.0035
+  precision : mean=0.8307 | std=0.0107
+  recall    : mean=0.8545 | std=0.0035
+  f1_score  : mean=0.8115 | std=0.0048
+  roc_auc   : mean=0.7650 | std=0.0180
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8564
+Precision : 0.8302
+Recall    : 0.8564
+F1-Score  : 0.8131
+ROC-AUC   : 0.7499
+
+Confusion Matrix:
+[[3096   39]
+ [ 492   72]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.65      0.13      0.21       564
+
+    accuracy                           0.86      3699
+   macro avg       0.76      0.56      0.57      3699
+weighted avg       0.83      0.86      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8523, prec=0.8405, rec=0.8523, f1=0.7972, roc_auc=0.6390
+  Fold 2: acc=0.8494, prec=0.8202, rec=0.8494, f1=0.7940, roc_auc=0.6341
+  Fold 3: acc=0.8511, prec=0.8365, rec=0.8511, f1=0.7946, roc_auc=0.6355
+  Fold 4: acc=0.8546, prec=0.8469, rec=0.8546, f1=0.8020, roc_auc=0.6785
+  Fold 5: acc=0.8511, prec=0.8257, rec=0.8511, f1=0.7997, roc_auc=0.6260
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8517 | std=0.0019
+  precision : mean=0.8340 | std=0.0109
+  recall    : mean=0.8517 | std=0.0019
+  f1_score  : mean=0.7975 | std=0.0034
+  roc_auc   : mean=0.6426 | std=0.0206
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8548
+Precision : 0.8373
+Recall    : 0.8548
+F1-Score  : 0.8014
+ROC-AUC   : 0.6525
+
+Confusion Matrix:
+[[3119   16]
+ [ 521   43]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.73      0.08      0.14       564
+
+    accuracy                           0.85      3699
+   macro avg       0.79      0.54      0.53      3699
+weighted avg       0.84      0.85      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8437, prec=0.8053, rec=0.8437, f1=0.8089, roc_auc=0.7668
+  Fold 2: acc=0.8447, prec=0.8099, rec=0.8447, f1=0.8146, roc_auc=0.7790
+  Fold 3: acc=0.8320, prec=0.7934, rec=0.8320, f1=0.8042, roc_auc=0.7230
+  Fold 4: acc=0.8465, prec=0.8162, rec=0.8465, f1=0.8213, roc_auc=0.7384
+  Fold 5: acc=0.8389, prec=0.8038, rec=0.8389, f1=0.8117, roc_auc=0.7366
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8412 | std=0.0058
+  precision : mean=0.8057 | std=0.0084
+  recall    : mean=0.8412 | std=0.0058
+  f1_score  : mean=0.8121 | std=0.0064
+  roc_auc   : mean=0.7488 | std=0.0233
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8386
+Precision : 0.7984
+Recall    : 0.8386
+F1-Score  : 0.8081
+ROC-AUC   : 0.7406
+
+Confusion Matrix:
+[[3006  129]
+ [ 468   96]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.43      0.17      0.24       564
+
+    accuracy                           0.84      3699
+   macro avg       0.65      0.56      0.58      3699
+weighted avg       0.80      0.84      0.81      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.854477   0.830659  0.854477  0.811521  0.764983      0.003538       0.010684    0.003538      0.004825     0.017966
+1                  SVM  0.851697   0.833951  0.851697  0.797512  0.642621      0.001928       0.010896    0.001928      0.003371     0.020606
+2              XGBoost  0.841154   0.805700  0.841154  0.812146  0.748775      0.005838       0.008426    0.005838      0.006408     0.023253
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.856448   0.830212  0.856448  0.813114  0.749886
+1                  SVM  0.854826   0.837343  0.854826  0.801397  0.652530
+2              XGBoost  0.838605   0.798407  0.838605  0.808072  0.740577
+
+
+
+############################################################
+# DATASET: shoppers_diff_4
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8460, prec=0.8043, rec=0.8460, f1=0.7965, roc_auc=0.7283
+  Fold 2: acc=0.8523, prec=0.8231, rec=0.8523, f1=0.8071, roc_auc=0.7659
+  Fold 3: acc=0.8552, prec=0.8360, rec=0.8552, f1=0.8087, roc_auc=0.7395
+  Fold 4: acc=0.8563, prec=0.8387, rec=0.8563, f1=0.8109, roc_auc=0.7555
+  Fold 5: acc=0.8505, prec=0.8180, rec=0.8505, f1=0.8084, roc_auc=0.7596
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8520 | std=0.0041
+  precision : mean=0.8240 | std=0.0140
+  recall    : mean=0.8520 | std=0.0041
+  f1_score  : mean=0.8063 | std=0.0056
+  roc_auc   : mean=0.7498 | std=0.0155
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8551
+Precision : 0.8274
+Recall    : 0.8551
+F1-Score  : 0.8095
+ROC-AUC   : 0.7664
+
+Confusion Matrix:
+[[3099   36]
+ [ 500   64]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.64      0.11      0.19       564
+
+    accuracy                           0.86      3699
+   macro avg       0.75      0.55      0.56      3699
+weighted avg       0.83      0.86      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8466, prec=0.8068, rec=0.8466, f1=0.7919, roc_auc=0.6198
+  Fold 2: acc=0.8546, prec=0.8375, rec=0.8546, f1=0.8048, roc_auc=0.6595
+  Fold 3: acc=0.8534, prec=0.8469, rec=0.8534, f1=0.7987, roc_auc=0.6327
+  Fold 4: acc=0.8552, prec=0.8547, rec=0.8552, f1=0.8015, roc_auc=0.6008
+  Fold 5: acc=0.8563, prec=0.8464, rec=0.8563, f1=0.8071, roc_auc=0.6570
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8532 | std=0.0039
+  precision : mean=0.8385 | std=0.0187
+  recall    : mean=0.8532 | std=0.0039
+  f1_score  : mean=0.8008 | std=0.0059
+  roc_auc   : mean=0.6339 | std=0.0249
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8556
+Precision : 0.8399
+Recall    : 0.8556
+F1-Score  : 0.8031
+ROC-AUC   : 0.6343
+
+Confusion Matrix:
+[[3119   16]
+ [ 518   46]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.74      0.08      0.15       564
+
+    accuracy                           0.86      3699
+   macro avg       0.80      0.54      0.53      3699
+weighted avg       0.84      0.86      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8321, prec=0.7916, rec=0.8321, f1=0.8026, roc_auc=0.7368
+  Fold 2: acc=0.8476, prec=0.8167, rec=0.8476, f1=0.8210, roc_auc=0.7554
+  Fold 3: acc=0.8343, prec=0.7959, rec=0.8343, f1=0.8058, roc_auc=0.7471
+  Fold 4: acc=0.8482, prec=0.8166, rec=0.8482, f1=0.8195, roc_auc=0.7409
+  Fold 5: acc=0.8413, prec=0.8052, rec=0.8413, f1=0.8118, roc_auc=0.7325
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8407 | std=0.0074
+  precision : mean=0.8052 | std=0.0116
+  recall    : mean=0.8407 | std=0.0074
+  f1_score  : mean=0.8121 | std=0.0081
+  roc_auc   : mean=0.7425 | std=0.0090
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8397
+Precision : 0.8016
+Recall    : 0.8397
+F1-Score  : 0.8107
+ROC-AUC   : 0.7501
+
+Confusion Matrix:
+[[3003  132]
+ [ 461  103]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.44      0.18      0.26       564
+
+    accuracy                           0.84      3699
+   macro avg       0.65      0.57      0.58      3699
+weighted avg       0.80      0.84      0.81      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.852046   0.824035  0.852046  0.806328  0.749755      0.004096       0.013997    0.004096      0.005646     0.015479
+1                  SVM  0.853204   0.838452  0.853204  0.800818  0.633922      0.003861       0.018691    0.003861      0.005928     0.024917
+2              XGBoost  0.840692   0.805202  0.840692  0.812135  0.742544      0.007414       0.011553    0.007414      0.008119     0.008974
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.855096   0.827365  0.855096  0.809459  0.766414
+1                  SVM  0.855637   0.839943  0.855637  0.803104  0.634253
+2              XGBoost  0.839686   0.801564  0.839686  0.810677  0.750092
+
+
+
+############################################################
+# DATASET: shoppers_diff_5
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8570, prec=0.8333, rec=0.8570, f1=0.8189, roc_auc=0.7494
+  Fold 2: acc=0.8621, prec=0.8491, rec=0.8621, f1=0.8223, roc_auc=0.7778
+  Fold 3: acc=0.8528, prec=0.8233, rec=0.8528, f1=0.8147, roc_auc=0.7718
+  Fold 4: acc=0.8528, prec=0.8256, rec=0.8528, f1=0.8086, roc_auc=0.7635
+  Fold 5: acc=0.8540, prec=0.8296, rec=0.8540, f1=0.8093, roc_auc=0.7754
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8558 | std=0.0039
+  precision : mean=0.8322 | std=0.0102
+  recall    : mean=0.8558 | std=0.0039
+  f1_score  : mean=0.8148 | std=0.0060
+  roc_auc   : mean=0.7676 | std=0.0115
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8586
+Precision : 0.8377
+Recall    : 0.8586
+F1-Score  : 0.8149
+ROC-AUC   : 0.7721
+
+Confusion Matrix:
+[[3103   32]
+ [ 491   73]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.70      0.13      0.22       564
+
+    accuracy                           0.86      3699
+   macro avg       0.78      0.56      0.57      3699
+weighted avg       0.84      0.86      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8581, prec=0.8484, rec=0.8581, f1=0.8115, roc_auc=0.6664
+  Fold 2: acc=0.8575, prec=0.8482, rec=0.8575, f1=0.8091, roc_auc=0.6692
+  Fold 3: acc=0.8517, prec=0.8241, rec=0.8517, f1=0.8041, roc_auc=0.6962
+  Fold 4: acc=0.8511, prec=0.8238, rec=0.8511, f1=0.8014, roc_auc=0.6575
+  Fold 5: acc=0.8523, prec=0.8282, rec=0.8523, f1=0.8029, roc_auc=0.6792
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8541 | std=0.0034
+  precision : mean=0.8345 | std=0.0127
+  recall    : mean=0.8541 | std=0.0034
+  f1_score  : mean=0.8058 | std=0.0043
+  roc_auc   : mean=0.6737 | std=0.0147
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8570
+Precision : 0.8395
+Recall    : 0.8570
+F1-Score  : 0.8078
+ROC-AUC   : 0.6481
+
+Confusion Matrix:
+[[3114   21]
+ [ 508   56]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.73      0.10      0.17       564
+
+    accuracy                           0.86      3699
+   macro avg       0.79      0.55      0.55      3699
+weighted avg       0.84      0.86      0.81      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8384, prec=0.8032, rec=0.8384, f1=0.8114, roc_auc=0.7363
+  Fold 2: acc=0.8297, prec=0.7906, rec=0.8297, f1=0.8024, roc_auc=0.7276
+  Fold 3: acc=0.8499, prec=0.8216, rec=0.8499, f1=0.8253, roc_auc=0.7487
+  Fold 4: acc=0.8395, prec=0.8059, rec=0.8395, f1=0.8137, roc_auc=0.7622
+  Fold 5: acc=0.8453, prec=0.8119, rec=0.8453, f1=0.8163, roc_auc=0.7404
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8406 | std=0.0077
+  precision : mean=0.8066 | std=0.0114
+  recall    : mean=0.8406 | std=0.0077
+  f1_score  : mean=0.8138 | std=0.0083
+  roc_auc   : mean=0.7431 | std=0.0131
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8470
+Precision : 0.8120
+Recall    : 0.8470
+F1-Score  : 0.8171
+ROC-AUC   : 0.7582
+
+Confusion Matrix:
+[[3025  110]
+ [ 456  108]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.50      0.19      0.28       564
+
+    accuracy                           0.85      3699
+   macro avg       0.68      0.58      0.60      3699
+weighted avg       0.81      0.85      0.82      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.855752   0.832168  0.855752  0.814768  0.767566      0.003936       0.010209    0.003936      0.005968     0.011515
+1                  SVM  0.854130   0.834525  0.854130  0.805784  0.673703      0.003388       0.012690    0.003388      0.004317     0.014747
+2              XGBoost  0.840575   0.806634  0.840575  0.813839  0.743051      0.007662       0.011417    0.007662      0.008297     0.013116
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.858610   0.837746  0.858610  0.814929  0.772077
+1                  SVM  0.856988   0.839547  0.856988  0.807815  0.648134
+2              XGBoost  0.846986   0.812040  0.846986  0.817136  0.758169
+
+
+
+############################################################
+# DATASET: shoppers_diff_6
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8518, prec=0.8206, rec=0.8518, f1=0.8140, roc_auc=0.7563
+  Fold 2: acc=0.8563, prec=0.8332, rec=0.8563, f1=0.8149, roc_auc=0.7793
+  Fold 3: acc=0.8575, prec=0.8364, rec=0.8575, f1=0.8173, roc_auc=0.7454
+  Fold 4: acc=0.8557, prec=0.8346, rec=0.8557, f1=0.8120, roc_auc=0.7853
+  Fold 5: acc=0.8644, prec=0.8466, rec=0.8644, f1=0.8332, roc_auc=0.7775
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8571 | std=0.0046
+  precision : mean=0.8343 | std=0.0093
+  recall    : mean=0.8571 | std=0.0046
+  f1_score  : mean=0.8183 | std=0.0086
+  roc_auc   : mean=0.7687 | std=0.0170
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8586
+Precision : 0.8343
+Recall    : 0.8586
+F1-Score  : 0.8188
+ROC-AUC   : 0.7693
+
+Confusion Matrix:
+[[3091   44]
+ [ 479   85]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.99      0.92      3135
+           1       0.66      0.15      0.25       564
+
+    accuracy                           0.86      3699
+   macro avg       0.76      0.57      0.58      3699
+weighted avg       0.83      0.86      0.82      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8489, prec=0.8138, rec=0.8489, f1=0.8023, roc_auc=0.6299
+  Fold 2: acc=0.8552, prec=0.8390, rec=0.8552, f1=0.8060, roc_auc=0.6611
+  Fold 3: acc=0.8563, prec=0.8464, rec=0.8563, f1=0.8071, roc_auc=0.6489
+  Fold 4: acc=0.8569, prec=0.8523, rec=0.8569, f1=0.8067, roc_auc=0.6610
+  Fold 5: acc=0.8604, prec=0.8474, rec=0.8604, f1=0.8187, roc_auc=0.6886
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8555 | std=0.0042
+  precision : mean=0.8398 | std=0.0153
+  recall    : mean=0.8555 | std=0.0042
+  f1_score  : mean=0.8082 | std=0.0062
+  roc_auc   : mean=0.6579 | std=0.0214
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8600
+Precision : 0.8477
+Recall    : 0.8600
+F1-Score  : 0.8134
+ROC-AUC   : 0.6436
+
+Confusion Matrix:
+[[3115   20]
+ [ 498   66]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.77      0.12      0.20       564
+
+    accuracy                           0.86      3699
+   macro avg       0.81      0.56      0.56      3699
+weighted avg       0.85      0.86      0.81      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8442, prec=0.8139, rec=0.8442, f1=0.8202, roc_auc=0.7580
+  Fold 2: acc=0.8523, prec=0.8237, rec=0.8523, f1=0.8254, roc_auc=0.7776
+  Fold 3: acc=0.8476, prec=0.8187, rec=0.8476, f1=0.8236, roc_auc=0.7675
+  Fold 4: acc=0.8494, prec=0.8206, rec=0.8494, f1=0.8244, roc_auc=0.7670
+  Fold 5: acc=0.8511, prec=0.8243, rec=0.8511, f1=0.8281, roc_auc=0.7825
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8489 | std=0.0032
+  precision : mean=0.8202 | std=0.0042
+  recall    : mean=0.8489 | std=0.0032
+  f1_score  : mean=0.8243 | std=0.0029
+  roc_auc   : mean=0.7705 | std=0.0096
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8502
+Precision : 0.8206
+Recall    : 0.8502
+F1-Score  : 0.8256
+ROC-AUC   : 0.7598
+
+Confusion Matrix:
+[[3012  123]
+ [ 431  133]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.92      3135
+           1       0.52      0.24      0.32       564
+
+    accuracy                           0.85      3699
+   macro avg       0.70      0.60      0.62      3699
+weighted avg       0.82      0.85      0.83      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.857143   0.834273  0.857143  0.818263  0.768748      0.004603       0.009286    0.004603      0.008577     0.017012
+1                  SVM  0.855522   0.839755  0.855522  0.808174  0.657883      0.004195       0.015282    0.004195      0.006191     0.021376
+2              XGBoost  0.848917   0.820222  0.848917  0.824345  0.770533      0.003150       0.004216    0.003150      0.002882     0.009639
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.858610   0.834278  0.858610  0.818821  0.769255
+1                  SVM  0.859962   0.847722  0.859962  0.813431  0.643606
+2              XGBoost  0.850230   0.820647  0.850230  0.825609  0.759754
+
+
+
+############################################################
+# DATASET: shoppers_diff_7
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8471, prec=0.8092, rec=0.8471, f1=0.8054, roc_auc=0.7622
+  Fold 2: acc=0.8569, prec=0.8351, rec=0.8569, f1=0.8153, roc_auc=0.7734
+  Fold 3: acc=0.8557, prec=0.8315, rec=0.8557, f1=0.8154, roc_auc=0.7646
+  Fold 4: acc=0.8534, prec=0.8288, rec=0.8534, f1=0.8075, roc_auc=0.7818
+  Fold 5: acc=0.8517, prec=0.8208, rec=0.8517, f1=0.8112, roc_auc=0.7841
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8530 | std=0.0038
+  precision : mean=0.8251 | std=0.0103
+  recall    : mean=0.8530 | std=0.0038
+  f1_score  : mean=0.8110 | std=0.0045
+  roc_auc   : mean=0.7732 | std=0.0098
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8540
+Precision : 0.8225
+Recall    : 0.8540
+F1-Score  : 0.8115
+ROC-AUC   : 0.7669
+
+Confusion Matrix:
+[[3087   48]
+ [ 492   72]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.98      0.92      3135
+           1       0.60      0.13      0.21       564
+
+    accuracy                           0.85      3699
+   macro avg       0.73      0.56      0.57      3699
+weighted avg       0.82      0.85      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8506, prec=0.8263, rec=0.8506, f1=0.7970, roc_auc=0.6591
+  Fold 2: acc=0.8505, prec=0.8262, rec=0.8505, f1=0.7956, roc_auc=0.6506
+  Fold 3: acc=0.8540, prec=0.8369, rec=0.8540, f1=0.8040, roc_auc=0.6715
+  Fold 4: acc=0.8523, prec=0.8336, rec=0.8523, f1=0.7997, roc_auc=0.6560
+  Fold 5: acc=0.8511, prec=0.8339, rec=0.8511, f1=0.7955, roc_auc=0.6746
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8517 | std=0.0015
+  precision : mean=0.8314 | std=0.0049
+  recall    : mean=0.8517 | std=0.0015
+  f1_score  : mean=0.7984 | std=0.0036
+  roc_auc   : mean=0.6623 | std=0.0103
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8556
+Precision : 0.8380
+Recall    : 0.8556
+F1-Score  : 0.8039
+ROC-AUC   : 0.6689
+
+Confusion Matrix:
+[[3117   18]
+ [ 516   48]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.73      0.09      0.15       564
+
+    accuracy                           0.86      3699
+   macro avg       0.79      0.54      0.54      3699
+weighted avg       0.84      0.86      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8257, prec=0.7899, rec=0.8257, f1=0.8019, roc_auc=0.7272
+  Fold 2: acc=0.8453, prec=0.8100, rec=0.8453, f1=0.8139, roc_auc=0.7578
+  Fold 3: acc=0.8378, prec=0.7978, rec=0.8378, f1=0.8060, roc_auc=0.7452
+  Fold 4: acc=0.8389, prec=0.8008, rec=0.8389, f1=0.8085, roc_auc=0.7482
+  Fold 5: acc=0.8326, prec=0.7915, rec=0.8326, f1=0.8023, roc_auc=0.7333
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8361 | std=0.0074
+  precision : mean=0.7980 | std=0.0080
+  recall    : mean=0.8361 | std=0.0074
+  f1_score  : mean=0.8065 | std=0.0049
+  roc_auc   : mean=0.7423 | std=0.0122
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8489
+Precision : 0.8148
+Recall    : 0.8489
+F1-Score  : 0.8185
+ROC-AUC   : 0.7518
+
+Confusion Matrix:
+[[3032  103]
+ [ 456  108]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.97      0.92      3135
+           1       0.51      0.19      0.28       564
+
+    accuracy                           0.85      3699
+   macro avg       0.69      0.58      0.60      3699
+weighted avg       0.81      0.85      0.82      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.852973   0.825090  0.852973  0.810971  0.773203      0.003840       0.010305    0.003840      0.004497     0.009848
+1                  SVM  0.851697   0.831386  0.851697  0.798356  0.662348      0.001461       0.004858    0.001461      0.003588     0.010273
+2              XGBoost  0.836057   0.798002  0.836057  0.806523  0.742342      0.007350       0.008030    0.007350      0.004942     0.012181
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.854015   0.822502  0.854015  0.811460  0.766870
+1                  SVM  0.855637   0.838041  0.855637  0.803890  0.668912
+2              XGBoost  0.848878   0.814769  0.848878  0.818489  0.751776
+
+
+
+############################################################
+# DATASET: shoppers_diff_8
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8576, prec=0.8394, rec=0.8576, f1=0.8147, roc_auc=0.7744
+  Fold 2: acc=0.8563, prec=0.8360, rec=0.8563, f1=0.8121, roc_auc=0.8055
+  Fold 3: acc=0.8604, prec=0.8547, rec=0.8604, f1=0.8152, roc_auc=0.7533
+  Fold 4: acc=0.8465, prec=0.8068, rec=0.8465, f1=0.8014, roc_auc=0.7772
+  Fold 5: acc=0.8546, prec=0.8272, rec=0.8546, f1=0.8172, roc_auc=0.7601
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8551 | std=0.0052
+  precision : mean=0.8328 | std=0.0176
+  recall    : mean=0.8551 | std=0.0052
+  f1_score  : mean=0.8121 | std=0.0063
+  roc_auc   : mean=0.7741 | std=0.0202
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8575
+Precision : 0.8347
+Recall    : 0.8575
+F1-Score  : 0.8132
+ROC-AUC   : 0.7608
+
+Confusion Matrix:
+[[3102   33]
+ [ 494   70]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.68      0.12      0.21       564
+
+    accuracy                           0.86      3699
+   macro avg       0.77      0.56      0.57      3699
+weighted avg       0.83      0.86      0.81      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8535, prec=0.8339, rec=0.8535, f1=0.8038, roc_auc=0.6369
+  Fold 2: acc=0.8563, prec=0.8531, rec=0.8563, f1=0.8044, roc_auc=0.6535
+  Fold 3: acc=0.8563, prec=0.8610, rec=0.8563, f1=0.8031, roc_auc=0.6642
+  Fold 4: acc=0.8499, prec=0.8256, rec=0.8499, f1=0.7948, roc_auc=0.6591
+  Fold 5: acc=0.8540, prec=0.8369, rec=0.8540, f1=0.8040, roc_auc=0.6478
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8540 | std=0.0026
+  precision : mean=0.8421 | std=0.0145
+  recall    : mean=0.8540 | std=0.0026
+  f1_score  : mean=0.8020 | std=0.0041
+  roc_auc   : mean=0.6523 | std=0.0105
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8562
+Precision : 0.8438
+Recall    : 0.8562
+F1-Score  : 0.8034
+ROC-AUC   : 0.6438
+
+Confusion Matrix:
+[[3121   14]
+ [ 518   46]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      1.00      0.92      3135
+           1       0.77      0.08      0.15       564
+
+    accuracy                           0.86      3699
+   macro avg       0.81      0.54      0.53      3699
+weighted avg       0.84      0.86      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8500, prec=0.8212, rec=0.8500, f1=0.8245, roc_auc=0.7497
+  Fold 2: acc=0.8447, prec=0.8137, rec=0.8447, f1=0.8199, roc_auc=0.7637
+  Fold 3: acc=0.8360, prec=0.8016, rec=0.8360, f1=0.8107, roc_auc=0.7550
+  Fold 4: acc=0.8331, prec=0.7952, rec=0.8331, f1=0.8055, roc_auc=0.7573
+  Fold 5: acc=0.8389, prec=0.8023, rec=0.8389, f1=0.8101, roc_auc=0.7456
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8406 | std=0.0068
+  precision : mean=0.8068 | std=0.0105
+  recall    : mean=0.8406 | std=0.0068
+  f1_score  : mean=0.8141 | std=0.0078
+  roc_auc   : mean=0.7543 | std=0.0070
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8435
+Precision : 0.8076
+Recall    : 0.8435
+F1-Score  : 0.8149
+ROC-AUC   : 0.7401
+
+Confusion Matrix:
+[[3011  124]
+ [ 455  109]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.47      0.19      0.27       564
+
+    accuracy                           0.84      3699
+   macro avg       0.67      0.58      0.59      3699
+weighted avg       0.81      0.84      0.81      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.855057   0.832838  0.855057  0.812100  0.774110      0.005247       0.017608    0.005247      0.006262     0.020175
+1                  SVM  0.854015   0.842108  0.854015  0.802007  0.652293      0.002619       0.014501    0.002619      0.004061     0.010546
+2              XGBoost  0.840574   0.806788  0.840574  0.814136  0.754281      0.006804       0.010452    0.006804      0.007771     0.006974
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.857529   0.834720  0.857529  0.813173  0.760779
+1                  SVM  0.856177   0.843780  0.856177  0.803445  0.643767
+2              XGBoost  0.843471   0.807596  0.843471  0.814892  0.740127
+
+
+
+############################################################
+# DATASET: shoppers_diff_9
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8523, prec=0.8234, rec=0.8523, f1=0.8090, roc_auc=0.7310
+  Fold 2: acc=0.8453, prec=0.8010, rec=0.8453, f1=0.7957, roc_auc=0.7517
+  Fold 3: acc=0.8517, prec=0.8211, rec=0.8517, f1=0.8099, roc_auc=0.7693
+  Fold 4: acc=0.8528, prec=0.8247, rec=0.8528, f1=0.8100, roc_auc=0.7666
+  Fold 5: acc=0.8604, prec=0.8453, rec=0.8604, f1=0.8200, roc_auc=0.7722
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8525 | std=0.0054
+  precision : mean=0.8231 | std=0.0157
+  recall    : mean=0.8525 | std=0.0054
+  f1_score  : mean=0.8089 | std=0.0087
+  roc_auc   : mean=0.7581 | std=0.0171
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8589
+Precision : 0.8380
+Recall    : 0.8589
+F1-Score  : 0.8158
+ROC-AUC   : 0.7801
+
+Confusion Matrix:
+[[3102   33]
+ [ 489   75]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.99      0.92      3135
+           1       0.69      0.13      0.22       564
+
+    accuracy                           0.86      3699
+   macro avg       0.78      0.56      0.57      3699
+weighted avg       0.84      0.86      0.82      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8529, prec=0.8396, rec=0.8529, f1=0.7993, roc_auc=0.6396
+  Fold 2: acc=0.8441, prec=0.7908, rec=0.8441, f1=0.7836, roc_auc=0.6476
+  Fold 3: acc=0.8546, prec=0.8385, rec=0.8546, f1=0.8052, roc_auc=0.6480
+  Fold 4: acc=0.8482, prec=0.8144, rec=0.8482, f1=0.7946, roc_auc=0.6448
+  Fold 5: acc=0.8534, prec=0.8438, rec=0.8534, f1=0.7995, roc_auc=0.6781
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8507 | std=0.0044
+  precision : mean=0.8254 | std=0.0225
+  recall    : mean=0.8507 | std=0.0044
+  f1_score  : mean=0.7965 | std=0.0081
+  roc_auc   : mean=0.6516 | std=0.0152
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8551
+Precision : 0.8445
+Recall    : 0.8551
+F1-Score  : 0.7999
+ROC-AUC   : 0.6475
+
+Confusion Matrix:
+[[3124   11]
+ [ 525   39]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      1.00      0.92      3135
+           1       0.78      0.07      0.13       564
+
+    accuracy                           0.86      3699
+   macro avg       0.82      0.53      0.52      3699
+weighted avg       0.84      0.86      0.80      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8460, prec=0.8142, rec=0.8460, f1=0.8190, roc_auc=0.7407
+  Fold 2: acc=0.8308, prec=0.7878, rec=0.8308, f1=0.7998, roc_auc=0.7279
+  Fold 3: acc=0.8413, prec=0.8092, rec=0.8413, f1=0.8165, roc_auc=0.7558
+  Fold 4: acc=0.8297, prec=0.7959, rec=0.8297, f1=0.8067, roc_auc=0.7409
+  Fold 5: acc=0.8511, prec=0.8222, rec=0.8511, f1=0.8242, roc_auc=0.7807
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8398 | std=0.0094
+  precision : mean=0.8058 | std=0.0139
+  recall    : mean=0.8398 | std=0.0094
+  f1_score  : mean=0.8132 | std=0.0098
+  roc_auc   : mean=0.7492 | std=0.0202
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8389
+Precision : 0.7987
+Recall    : 0.8389
+F1-Score  : 0.8083
+ROC-AUC   : 0.7447
+
+Confusion Matrix:
+[[3007  128]
+ [ 468   96]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.96      0.91      3135
+           1       0.43      0.17      0.24       564
+
+    accuracy                           0.84      3699
+   macro avg       0.65      0.56      0.58      3699
+weighted avg       0.80      0.84      0.81      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.852508   0.823090  0.852508  0.808915  0.758146      0.005350       0.015734    0.005350      0.008667     0.017131
+1                  SVM  0.850654   0.825432  0.850654  0.796451  0.651595      0.004374       0.022501    0.004374      0.008095     0.015168
+2              XGBoost  0.839763   0.805844  0.839763  0.813226  0.749231      0.009371       0.013885    0.009371      0.009842     0.020184
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.858881   0.838000  0.858881  0.815785  0.780089
+1                  SVM  0.855096   0.844518  0.855096  0.799933  0.647492
+2              XGBoost  0.838875   0.798731  0.838875  0.808259  0.744675
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_0
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8697, prec=0.8582, rec=0.8697, f1=0.8389, roc_auc=0.8081
+  Fold 2: acc=0.8615, prec=0.8391, rec=0.8615, f1=0.8344, roc_auc=0.8287
+  Fold 3: acc=0.8702, prec=0.8564, rec=0.8702, f1=0.8424, roc_auc=0.7982
+  Fold 4: acc=0.8592, prec=0.8364, rec=0.8592, f1=0.8260, roc_auc=0.8052
+  Fold 5: acc=0.8696, prec=0.8533, rec=0.8696, f1=0.8448, roc_auc=0.8280
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8661 | std=0.0053
+  precision : mean=0.8487 | std=0.0102
+  recall    : mean=0.8661 | std=0.0053
+  f1_score  : mean=0.8373 | std=0.0074
+  roc_auc   : mean=0.8136 | std=0.0139
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8665
+Precision : 0.8462
+Recall    : 0.8665
+F1-Score  : 0.8395
+ROC-AUC   : 0.8095
+
+Confusion Matrix:
+[[3065   70]
+ [ 424  140]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.67      0.25      0.36       564
+
+    accuracy                           0.87      3699
+   macro avg       0.77      0.61      0.64      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8628, prec=0.8416, rec=0.8628, f1=0.8356, roc_auc=0.7563
+  Fold 2: acc=0.8691, prec=0.8514, rec=0.8691, f1=0.8460, roc_auc=0.7907
+  Fold 3: acc=0.8696, prec=0.8547, rec=0.8696, f1=0.8424, roc_auc=0.7642
+  Fold 4: acc=0.8615, prec=0.8394, rec=0.8615, f1=0.8351, roc_auc=0.7560
+  Fold 5: acc=0.8749, prec=0.8613, rec=0.8749, f1=0.8525, roc_auc=0.7865
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8676 | std=0.0055
+  precision : mean=0.8497 | std=0.0091
+  recall    : mean=0.8676 | std=0.0055
+  f1_score  : mean=0.8423 | std=0.0073
+  roc_auc   : mean=0.7707 | std=0.0167
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8740
+Precision : 0.8591
+Recall    : 0.8740
+F1-Score  : 0.8497
+ROC-AUC   : 0.7655
+
+Confusion Matrix:
+[[3074   61]
+ [ 405  159]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.72      0.28      0.41       564
+
+    accuracy                           0.87      3699
+   macro avg       0.80      0.63      0.67      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8628, prec=0.8445, rec=0.8628, f1=0.8478, roc_auc=0.8278
+  Fold 2: acc=0.8731, prec=0.8583, rec=0.8731, f1=0.8602, roc_auc=0.8390
+  Fold 3: acc=0.8621, prec=0.8445, rec=0.8621, f1=0.8483, roc_auc=0.8196
+  Fold 4: acc=0.8627, prec=0.8444, rec=0.8627, f1=0.8477, roc_auc=0.8195
+  Fold 5: acc=0.8638, prec=0.8461, rec=0.8638, f1=0.8494, roc_auc=0.8143
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8649 | std=0.0046
+  precision : mean=0.8476 | std=0.0060
+  recall    : mean=0.8649 | std=0.0046
+  f1_score  : mean=0.8507 | std=0.0054
+  roc_auc   : mean=0.8241 | std=0.0097
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8675
+Precision : 0.8505
+Recall    : 0.8675
+F1-Score  : 0.8537
+ROC-AUC   : 0.8337
+
+Confusion Matrix:
+[[3000  135]
+ [ 355  209]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.96      0.92      3135
+           1       0.61      0.37      0.46       564
+
+    accuracy                           0.87      3699
+   macro avg       0.75      0.66      0.69      3699
+weighted avg       0.85      0.87      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.866064   0.848677  0.866064  0.837293  0.813619      0.005266       0.010182    0.005266      0.007432     0.013927
+1                  SVM  0.867571   0.849683  0.867571  0.842307  0.770737      0.005457       0.009139    0.005457      0.007310     0.016680
+2              XGBoost  0.864906   0.847563  0.864906  0.850677  0.824066      0.004633       0.006043    0.004633      0.005358     0.009652
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.866450   0.846180  0.866450  0.839479  0.809459
+1                  SVM  0.874020   0.859060  0.874020  0.849658  0.765532
+2              XGBoost  0.867532   0.850484  0.867532  0.853729  0.833719
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_1
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8587, prec=0.8345, rec=0.8587, f1=0.8295, roc_auc=0.8381
+  Fold 2: acc=0.8633, prec=0.8420, rec=0.8633, f1=0.8382, roc_auc=0.8418
+  Fold 3: acc=0.8731, prec=0.8578, rec=0.8731, f1=0.8519, roc_auc=0.8202
+  Fold 4: acc=0.8598, prec=0.8369, rec=0.8598, f1=0.8366, roc_auc=0.8507
+  Fold 5: acc=0.8685, prec=0.8512, rec=0.8685, f1=0.8438, roc_auc=0.8576
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8647 | std=0.0061
+  precision : mean=0.8445 | std=0.0098
+  recall    : mean=0.8647 | std=0.0061
+  f1_score  : mean=0.8400 | std=0.0084
+  roc_auc   : mean=0.8417 | std=0.0142
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8678
+Precision : 0.8485
+Recall    : 0.8678
+F1-Score  : 0.8414
+ROC-AUC   : 0.8404
+
+Confusion Matrix:
+[[3066   69]
+ [ 420  144]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.68      0.26      0.37       564
+
+    accuracy                           0.87      3699
+   macro avg       0.78      0.62      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8547, prec=0.8275, rec=0.8547, f1=0.8166, roc_auc=0.8015
+  Fold 2: acc=0.8610, prec=0.8385, rec=0.8610, f1=0.8309, roc_auc=0.7782
+  Fold 3: acc=0.8725, prec=0.8618, rec=0.8725, f1=0.8442, roc_auc=0.8033
+  Fold 4: acc=0.8627, prec=0.8419, rec=0.8627, f1=0.8340, roc_auc=0.8314
+  Fold 5: acc=0.8673, prec=0.8533, rec=0.8673, f1=0.8360, roc_auc=0.8064
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8636 | std=0.0067
+  precision : mean=0.8446 | std=0.0133
+  recall    : mean=0.8636 | std=0.0067
+  f1_score  : mean=0.8323 | std=0.0101
+  roc_auc   : mean=0.8042 | std=0.0189
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8667
+Precision : 0.8514
+Recall    : 0.8667
+F1-Score  : 0.8323
+ROC-AUC   : 0.8106
+
+Confusion Matrix:
+[[3095   40]
+ [ 453  111]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.87      0.99      0.93      3135
+           1       0.74      0.20      0.31       564
+
+    accuracy                           0.87      3699
+   macro avg       0.80      0.59      0.62      3699
+weighted avg       0.85      0.87      0.83      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8587, prec=0.8410, rec=0.8587, f1=0.8456, roc_auc=0.8307
+  Fold 2: acc=0.8598, prec=0.8411, rec=0.8598, f1=0.8453, roc_auc=0.8248
+  Fold 3: acc=0.8534, prec=0.8378, rec=0.8534, f1=0.8431, roc_auc=0.8163
+  Fold 4: acc=0.8714, prec=0.8590, rec=0.8714, f1=0.8624, roc_auc=0.8655
+  Fold 5: acc=0.8667, prec=0.8515, rec=0.8667, f1=0.8550, roc_auc=0.8403
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8620 | std=0.0071
+  precision : mean=0.8461 | std=0.0089
+  recall    : mean=0.8620 | std=0.0071
+  f1_score  : mean=0.8503 | std=0.0082
+  roc_auc   : mean=0.8355 | std=0.0189
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8665
+Precision : 0.8504
+Recall    : 0.8665
+F1-Score  : 0.8543
+ROC-AUC   : 0.8401
+
+Confusion Matrix:
+[[2987  148]
+ [ 346  218]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.95      0.92      3135
+           1       0.60      0.39      0.47       564
+
+    accuracy                           0.87      3699
+   macro avg       0.75      0.67      0.70      3699
+weighted avg       0.85      0.87      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.864675   0.844466  0.864675  0.839996  0.841695      0.006065       0.009836    0.006065      0.008406     0.014233
+1                  SVM  0.863632   0.844597  0.863632  0.832348  0.804157      0.006736       0.013322    0.006736      0.010063     0.018890
+2              XGBoost  0.862009   0.846082  0.862009  0.850298  0.835528      0.007067       0.008885    0.007067      0.008195     0.018918
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.867802   0.848496  0.867802  0.841447  0.840444
+1                  SVM  0.866721   0.851400  0.866721  0.832346  0.810633
+2              XGBoost  0.866450   0.850362  0.866450  0.854278  0.840073
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_2
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8674, prec=0.8488, rec=0.8674, f1=0.8457, roc_auc=0.8282
+  Fold 2: acc=0.8714, prec=0.8568, rec=0.8714, f1=0.8455, roc_auc=0.8408
+  Fold 3: acc=0.8731, prec=0.8574, rec=0.8731, f1=0.8535, roc_auc=0.8292
+  Fold 4: acc=0.8737, prec=0.8608, rec=0.8737, f1=0.8489, roc_auc=0.8449
+  Fold 5: acc=0.8714, prec=0.8551, rec=0.8714, f1=0.8497, roc_auc=0.8279
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8714 | std=0.0025
+  precision : mean=0.8558 | std=0.0044
+  recall    : mean=0.8714 | std=0.0025
+  f1_score  : mean=0.8487 | std=0.0033
+  roc_auc   : mean=0.8342 | std=0.0081
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8659
+Precision : 0.8450
+Recall    : 0.8659
+F1-Score  : 0.8435
+ROC-AUC   : 0.8370
+
+Confusion Matrix:
+[[3043   92]
+ [ 404  160]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.97      0.92      3135
+           1       0.63      0.28      0.39       564
+
+    accuracy                           0.87      3699
+   macro avg       0.76      0.63      0.66      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8691, prec=0.8543, rec=0.8691, f1=0.8410, roc_auc=0.7948
+  Fold 2: acc=0.8691, prec=0.8535, rec=0.8691, f1=0.8413, roc_auc=0.7794
+  Fold 3: acc=0.8708, prec=0.8543, rec=0.8708, f1=0.8488, roc_auc=0.8004
+  Fold 4: acc=0.8673, prec=0.8502, rec=0.8673, f1=0.8401, roc_auc=0.8083
+  Fold 5: acc=0.8696, prec=0.8531, rec=0.8696, f1=0.8452, roc_auc=0.7839
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8692 | std=0.0013
+  precision : mean=0.8531 | std=0.0017
+  recall    : mean=0.8692 | std=0.0013
+  f1_score  : mean=0.8433 | std=0.0036
+  roc_auc   : mean=0.7934 | std=0.0118
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8670
+Precision : 0.8470
+Recall    : 0.8670
+F1-Score  : 0.8408
+ROC-AUC   : 0.7986
+
+Confusion Matrix:
+[[3063   72]
+ [ 420  144]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.67      0.26      0.37       564
+
+    accuracy                           0.87      3699
+   macro avg       0.77      0.62      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8674, prec=0.8517, rec=0.8674, f1=0.8550, roc_auc=0.8100
+  Fold 2: acc=0.8644, prec=0.8475, rec=0.8644, f1=0.8511, roc_auc=0.8298
+  Fold 3: acc=0.8679, prec=0.8536, rec=0.8679, f1=0.8572, roc_auc=0.8357
+  Fold 4: acc=0.8702, prec=0.8538, rec=0.8702, f1=0.8549, roc_auc=0.8344
+  Fold 5: acc=0.8644, prec=0.8470, rec=0.8644, f1=0.8502, roc_auc=0.8012
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8669 | std=0.0025
+  precision : mean=0.8507 | std=0.0033
+  recall    : mean=0.8669 | std=0.0025
+  f1_score  : mean=0.8537 | std=0.0029
+  roc_auc   : mean=0.8222 | std=0.0157
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8673
+Precision : 0.8517
+Recall    : 0.8673
+F1-Score  : 0.8555
+ROC-AUC   : 0.8275
+
+Confusion Matrix:
+[[2986  149]
+ [ 342  222]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.95      0.92      3135
+           1       0.60      0.39      0.47       564
+
+    accuracy                           0.87      3699
+   macro avg       0.75      0.67      0.70      3699
+weighted avg       0.85      0.87      0.86      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.871394   0.855782  0.871394  0.848655  0.834185      0.002461       0.004429    0.002461      0.003297     0.008056
+1                  SVM  0.869192   0.853080  0.869192  0.843283  0.793351      0.001255       0.001697    0.001255      0.003644     0.011832
+2              XGBoost  0.866875   0.850733  0.866875  0.853670  0.822215      0.002476       0.003274    0.002476      0.002934     0.015651
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.865910   0.845002  0.865910  0.843453  0.836974
+1                  SVM  0.866991   0.846976  0.866991  0.840817  0.798649
+2              XGBoost  0.867261   0.851668  0.867261  0.855544  0.827500
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_3
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8633, prec=0.8433, rec=0.8633, f1=0.8340, roc_auc=0.8227
+  Fold 2: acc=0.8783, prec=0.8671, rec=0.8783, f1=0.8560, roc_auc=0.8432
+  Fold 3: acc=0.8621, prec=0.8406, rec=0.8621, f1=0.8341, roc_auc=0.7985
+  Fold 4: acc=0.8662, prec=0.8509, rec=0.8662, f1=0.8345, roc_auc=0.8419
+  Fold 5: acc=0.8575, prec=0.8324, rec=0.8575, f1=0.8300, roc_auc=0.8065
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8655 | std=0.0078
+  precision : mean=0.8469 | std=0.0131
+  recall    : mean=0.8655 | std=0.0078
+  f1_score  : mean=0.8377 | std=0.0104
+  roc_auc   : mean=0.8226 | std=0.0202
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8665
+Precision : 0.8465
+Recall    : 0.8665
+F1-Score  : 0.8385
+ROC-AUC   : 0.8245
+
+Confusion Matrix:
+[[3069   66]
+ [ 428  136]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.67      0.24      0.36       564
+
+    accuracy                           0.87      3699
+   macro avg       0.78      0.61      0.64      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8587, prec=0.8369, rec=0.8587, f1=0.8221, roc_auc=0.7553
+  Fold 2: acc=0.8795, prec=0.8745, rec=0.8795, f1=0.8530, roc_auc=0.8042
+  Fold 3: acc=0.8667, prec=0.8509, rec=0.8667, f1=0.8366, roc_auc=0.7744
+  Fold 4: acc=0.8650, prec=0.8528, rec=0.8650, f1=0.8291, roc_auc=0.8172
+  Fold 5: acc=0.8581, prec=0.8337, rec=0.8581, f1=0.8257, roc_auc=0.7477
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8656 | std=0.0086
+  precision : mean=0.8498 | std=0.0162
+  recall    : mean=0.8656 | std=0.0086
+  f1_score  : mean=0.8333 | std=0.0123
+  roc_auc   : mean=0.7798 | std=0.0302
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8716
+Precision : 0.8595
+Recall    : 0.8716
+F1-Score  : 0.8408
+ROC-AUC   : 0.7818
+
+Confusion Matrix:
+[[3095   40]
+ [ 435  129]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.99      0.93      3135
+           1       0.76      0.23      0.35       564
+
+    accuracy                           0.87      3699
+   macro avg       0.82      0.61      0.64      3699
+weighted avg       0.86      0.87      0.84      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8645, prec=0.8461, rec=0.8645, f1=0.8485, roc_auc=0.8176
+  Fold 2: acc=0.8702, prec=0.8542, rec=0.8702, f1=0.8562, roc_auc=0.8287
+  Fold 3: acc=0.8627, prec=0.8451, rec=0.8627, f1=0.8488, roc_auc=0.8124
+  Fold 4: acc=0.8691, prec=0.8530, rec=0.8691, f1=0.8553, roc_auc=0.8294
+  Fold 5: acc=0.8517, prec=0.8333, rec=0.8517, f1=0.8390, roc_auc=0.7952
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8636 | std=0.0074
+  precision : mean=0.8463 | std=0.0083
+  recall    : mean=0.8636 | std=0.0074
+  f1_score  : mean=0.8495 | std=0.0069
+  roc_auc   : mean=0.8167 | std=0.0140
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8637
+Precision : 0.8450
+Recall    : 0.8637
+F1-Score  : 0.8487
+ROC-AUC   : 0.8291
+
+Confusion Matrix:
+[[2998  137]
+ [ 367  197]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.96      0.92      3135
+           1       0.59      0.35      0.44       564
+
+    accuracy                           0.86      3699
+   macro avg       0.74      0.65      0.68      3699
+weighted avg       0.85      0.86      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.865485   0.846866  0.865485  0.837735  0.822561      0.007836       0.013107    0.007836      0.010389     0.020225
+1                  SVM  0.865602   0.849754  0.865602  0.833285  0.779754      0.008645       0.016173    0.008645      0.012258     0.030217
+2              XGBoost  0.863631   0.846332  0.863631  0.849543  0.816664      0.007372       0.008309    0.007372      0.006887     0.014045
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.866450   0.846453  0.866450  0.838538  0.824478
+1                  SVM  0.871587   0.859471  0.871587  0.840792  0.781822
+2              XGBoost  0.863747   0.845024  0.863747  0.848709  0.829132
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_4
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8633, prec=0.8435, rec=0.8633, f1=0.8335, roc_auc=0.8238
+  Fold 2: acc=0.8644, prec=0.8443, rec=0.8644, f1=0.8372, roc_auc=0.8342
+  Fold 3: acc=0.8650, prec=0.8476, rec=0.8650, f1=0.8342, roc_auc=0.8187
+  Fold 4: acc=0.8714, prec=0.8567, rec=0.8714, f1=0.8461, roc_auc=0.8223
+  Fold 5: acc=0.8673, prec=0.8495, rec=0.8673, f1=0.8415, roc_auc=0.8128
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8663 | std=0.0032
+  precision : mean=0.8484 | std=0.0053
+  recall    : mean=0.8663 | std=0.0032
+  f1_score  : mean=0.8385 | std=0.0053
+  roc_auc   : mean=0.8224 | std=0.0079
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8694
+Precision : 0.8516
+Recall    : 0.8694
+F1-Score  : 0.8429
+ROC-AUC   : 0.8320
+
+Confusion Matrix:
+[[3071   64]
+ [ 419  145]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.69      0.26      0.38       564
+
+    accuracy                           0.87      3699
+   macro avg       0.79      0.62      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8645, prec=0.8480, rec=0.8645, f1=0.8317, roc_auc=0.7687
+  Fold 2: acc=0.8708, prec=0.8579, rec=0.8708, f1=0.8421, roc_auc=0.8069
+  Fold 3: acc=0.8656, prec=0.8510, rec=0.8656, f1=0.8324, roc_auc=0.7647
+  Fold 4: acc=0.8714, prec=0.8607, rec=0.8714, f1=0.8418, roc_auc=0.7921
+  Fold 5: acc=0.8656, prec=0.8499, rec=0.8656, f1=0.8336, roc_auc=0.7808
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8676 | std=0.0032
+  precision : mean=0.8535 | std=0.0055
+  recall    : mean=0.8676 | std=0.0032
+  f1_score  : mean=0.8363 | std=0.0052
+  roc_auc   : mean=0.7826 | std=0.0173
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8710
+Precision : 0.8568
+Recall    : 0.8710
+F1-Score  : 0.8416
+ROC-AUC   : 0.7851
+
+Confusion Matrix:
+[[3088   47]
+ [ 430  134]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.99      0.93      3135
+           1       0.74      0.24      0.36       564
+
+    accuracy                           0.87      3699
+   macro avg       0.81      0.61      0.64      3699
+weighted avg       0.86      0.87      0.84      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8599, prec=0.8388, rec=0.8599, f1=0.8413, roc_auc=0.8055
+  Fold 2: acc=0.8540, prec=0.8350, rec=0.8540, f1=0.8404, roc_auc=0.8197
+  Fold 3: acc=0.8546, prec=0.8344, rec=0.8546, f1=0.8395, roc_auc=0.8180
+  Fold 4: acc=0.8627, prec=0.8456, rec=0.8627, f1=0.8495, roc_auc=0.8177
+  Fold 5: acc=0.8621, prec=0.8433, rec=0.8621, f1=0.8465, roc_auc=0.8111
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8586 | std=0.0041
+  precision : mean=0.8394 | std=0.0050
+  recall    : mean=0.8586 | std=0.0041
+  f1_score  : mean=0.8434 | std=0.0043
+  roc_auc   : mean=0.8144 | std=0.0060
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8656
+Precision : 0.8479
+Recall    : 0.8656
+F1-Score  : 0.8514
+ROC-AUC   : 0.8331
+
+Confusion Matrix:
+[[2998  137]
+ [ 360  204]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.96      0.92      3135
+           1       0.60      0.36      0.45       564
+
+    accuracy                           0.87      3699
+   macro avg       0.75      0.66      0.69      3699
+weighted avg       0.85      0.87      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.866296   0.848352  0.866296  0.838509  0.822357      0.003192       0.005275    0.003192      0.005315     0.007851
+1                  SVM  0.867571   0.853511  0.867571  0.836316  0.782629      0.003249       0.005499    0.003249      0.005196     0.017288
+2              XGBoost  0.858649   0.839420  0.858649  0.843443  0.814407      0.004123       0.004954    0.004123      0.004336     0.005960
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.869424   0.851558  0.869424  0.842939  0.831966
+1                  SVM  0.871046   0.856815  0.871046  0.841611  0.785149
+2              XGBoost  0.865639   0.847882  0.865639  0.851393  0.833072
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_5
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8674, prec=0.8494, rec=0.8674, f1=0.8421, roc_auc=0.8299
+  Fold 2: acc=0.8772, prec=0.8655, rec=0.8772, f1=0.8542, roc_auc=0.8447
+  Fold 3: acc=0.8650, prec=0.8458, rec=0.8650, f1=0.8378, roc_auc=0.8107
+  Fold 4: acc=0.8667, prec=0.8505, rec=0.8667, f1=0.8371, roc_auc=0.8314
+  Fold 5: acc=0.8673, prec=0.8497, rec=0.8673, f1=0.8411, roc_auc=0.8610
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8687 | std=0.0048
+  precision : mean=0.8522 | std=0.0077
+  recall    : mean=0.8687 | std=0.0048
+  f1_score  : mean=0.8425 | std=0.0069
+  roc_auc   : mean=0.8356 | std=0.0187
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8675
+Precision : 0.8477
+Recall    : 0.8675
+F1-Score  : 0.8424
+ROC-AUC   : 0.8326
+
+Confusion Matrix:
+[[3060   75]
+ [ 415  149]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.67      0.26      0.38       564
+
+    accuracy                           0.87      3699
+   macro avg       0.77      0.62      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8651, prec=0.8459, rec=0.8651, f1=0.8379, roc_auc=0.8081
+  Fold 2: acc=0.8743, prec=0.8598, rec=0.8743, f1=0.8523, roc_auc=0.8238
+  Fold 3: acc=0.8691, prec=0.8517, rec=0.8691, f1=0.8461, roc_auc=0.7840
+  Fold 4: acc=0.8644, prec=0.8444, rec=0.8644, f1=0.8383, roc_auc=0.7903
+  Fold 5: acc=0.8714, prec=0.8550, rec=0.8714, f1=0.8501, roc_auc=0.8286
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8688 | std=0.0042
+  precision : mean=0.8514 | std=0.0064
+  recall    : mean=0.8688 | std=0.0042
+  f1_score  : mean=0.8449 | std=0.0066
+  roc_auc   : mean=0.8069 | std=0.0197
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8697
+Precision : 0.8513
+Recall    : 0.8697
+F1-Score  : 0.8456
+ROC-AUC   : 0.8131
+
+Confusion Matrix:
+[[3061   74]
+ [ 408  156]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.68      0.28      0.39       564
+
+    accuracy                           0.87      3699
+   macro avg       0.78      0.63      0.66      3699
+weighted avg       0.85      0.87      0.85      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8657, prec=0.8492, rec=0.8657, f1=0.8526, roc_auc=0.8215
+  Fold 2: acc=0.8621, prec=0.8513, rec=0.8621, f1=0.8554, roc_auc=0.8307
+  Fold 3: acc=0.8610, prec=0.8458, rec=0.8610, f1=0.8504, roc_auc=0.8374
+  Fold 4: acc=0.8644, prec=0.8514, rec=0.8644, f1=0.8556, roc_auc=0.8350
+  Fold 5: acc=0.8592, prec=0.8415, rec=0.8592, f1=0.8460, roc_auc=0.8446
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8625 | std=0.0026
+  precision : mean=0.8479 | std=0.0042
+  recall    : mean=0.8625 | std=0.0026
+  f1_score  : mean=0.8520 | std=0.0040
+  roc_auc   : mean=0.8338 | std=0.0085
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8656
+Precision : 0.8501
+Recall    : 0.8656
+F1-Score  : 0.8542
+ROC-AUC   : 0.8241
+
+Confusion Matrix:
+[[2980  155]
+ [ 342  222]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.95      0.92      3135
+           1       0.59      0.39      0.47       564
+
+    accuracy                           0.87      3699
+   macro avg       0.74      0.67      0.70      3699
+weighted avg       0.85      0.87      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.868729   0.852188  0.868729  0.842459  0.835553      0.004818       0.007668    0.004818      0.006911     0.018710
+1                  SVM  0.868845   0.851352  0.868845  0.844934  0.806950      0.004172       0.006386    0.004172      0.006626     0.019745
+2              XGBoost  0.862472   0.847872  0.862472  0.851971  0.833840      0.002602       0.004218    0.002602      0.003977     0.008523
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.867532   0.847733  0.867532  0.842360  0.832641
+1                  SVM  0.869695   0.851263  0.869695  0.845583  0.813121
+2              XGBoost  0.865639   0.850059  0.865639  0.854235  0.824059
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_6
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8593, prec=0.8355, rec=0.8593, f1=0.8309, roc_auc=0.8210
+  Fold 2: acc=0.8789, prec=0.8772, rec=0.8789, f1=0.8501, roc_auc=0.8446
+  Fold 3: acc=0.8656, prec=0.8476, rec=0.8656, f1=0.8367, roc_auc=0.8006
+  Fold 4: acc=0.8621, prec=0.8430, rec=0.8621, f1=0.8287, roc_auc=0.8310
+  Fold 5: acc=0.8685, prec=0.8509, rec=0.8685, f1=0.8447, roc_auc=0.8163
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8669 | std=0.0076
+  precision : mean=0.8508 | std=0.0159
+  recall    : mean=0.8669 | std=0.0076
+  f1_score  : mean=0.8382 | std=0.0091
+  roc_auc   : mean=0.8227 | std=0.0165
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8729
+Precision : 0.8583
+Recall    : 0.8729
+F1-Score  : 0.8466
+ROC-AUC   : 0.8192
+
+Confusion Matrix:
+[[3080   55]
+ [ 415  149]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.73      0.26      0.39       564
+
+    accuracy                           0.87      3699
+   macro avg       0.81      0.62      0.66      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8587, prec=0.8345, rec=0.8587, f1=0.8289, roc_auc=0.7973
+  Fold 2: acc=0.8841, prec=0.8826, rec=0.8841, f1=0.8591, roc_auc=0.8366
+  Fold 3: acc=0.8673, prec=0.8497, rec=0.8673, f1=0.8411, roc_auc=0.7868
+  Fold 4: acc=0.8621, prec=0.8423, rec=0.8621, f1=0.8298, roc_auc=0.7882
+  Fold 5: acc=0.8708, prec=0.8543, rec=0.8708, f1=0.8488, roc_auc=0.7865
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8686 | std=0.0098
+  precision : mean=0.8527 | std=0.0183
+  recall    : mean=0.8686 | std=0.0098
+  f1_score  : mean=0.8415 | std=0.0128
+  roc_auc   : mean=0.7991 | std=0.0214
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8729
+Precision : 0.8569
+Recall    : 0.8729
+F1-Score  : 0.8490
+ROC-AUC   : 0.8080
+
+Confusion Matrix:
+[[3069   66]
+ [ 404  160]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.71      0.28      0.41       564
+
+    accuracy                           0.87      3699
+   macro avg       0.80      0.63      0.67      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8645, prec=0.8461, rec=0.8645, f1=0.8485, roc_auc=0.8284
+  Fold 2: acc=0.8731, prec=0.8576, rec=0.8731, f1=0.8585, roc_auc=0.8618
+  Fold 3: acc=0.8627, prec=0.8464, rec=0.8627, f1=0.8505, roc_auc=0.8289
+  Fold 4: acc=0.8627, prec=0.8449, rec=0.8627, f1=0.8484, roc_auc=0.8426
+  Fold 5: acc=0.8656, prec=0.8498, rec=0.8656, f1=0.8535, roc_auc=0.8211
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8657 | std=0.0043
+  precision : mean=0.8490 | std=0.0052
+  recall    : mean=0.8657 | std=0.0043
+  f1_score  : mean=0.8519 | std=0.0043
+  roc_auc   : mean=0.8366 | std=0.0161
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8697
+Precision : 0.8539
+Recall    : 0.8697
+F1-Score  : 0.8571
+ROC-AUC   : 0.8433
+
+Confusion Matrix:
+[[2998  137]
+ [ 345  219]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.96      0.93      3135
+           1       0.62      0.39      0.48       564
+
+    accuracy                           0.87      3699
+   macro avg       0.76      0.67      0.70      3699
+weighted avg       0.85      0.87      0.86      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.866876   0.850837  0.866876  0.838243  0.822689      0.007571       0.015852    0.007571      0.009089     0.016460
+1                  SVM  0.868614   0.852662  0.868614  0.841534  0.799096      0.009841       0.018325    0.009841      0.012821     0.021448
+2              XGBoost  0.865717   0.848961  0.865717  0.851872  0.836561      0.004318       0.005196    0.004318      0.004252     0.016118
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.872939   0.858256  0.872939  0.846608  0.819224
+1                  SVM  0.872939   0.856883  0.872939  0.849007  0.808047
+2              XGBoost  0.869695   0.853858  0.869695  0.857056  0.843349
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_7
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8703, prec=0.8541, rec=0.8703, f1=0.8462, roc_auc=0.8306
+  Fold 2: acc=0.8685, prec=0.8517, rec=0.8685, f1=0.8418, roc_auc=0.8341
+  Fold 3: acc=0.8720, prec=0.8566, rec=0.8720, f1=0.8488, roc_auc=0.8226
+  Fold 4: acc=0.8656, prec=0.8463, rec=0.8656, f1=0.8402, roc_auc=0.8396
+  Fold 5: acc=0.8696, prec=0.8523, rec=0.8696, f1=0.8483, roc_auc=0.8292
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8692 | std=0.0024
+  precision : mean=0.8522 | std=0.0038
+  recall    : mean=0.8692 | std=0.0024
+  f1_score  : mean=0.8451 | std=0.0039
+  roc_auc   : mean=0.8312 | std=0.0063
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8743
+Precision : 0.8592
+Recall    : 0.8743
+F1-Score  : 0.8505
+ROC-AUC   : 0.8237
+
+Confusion Matrix:
+[[3072   63]
+ [ 402  162]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.72      0.29      0.41       564
+
+    accuracy                           0.87      3699
+   macro avg       0.80      0.63      0.67      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8743, prec=0.8596, rec=0.8743, f1=0.8537, roc_auc=0.8098
+  Fold 2: acc=0.8691, prec=0.8511, rec=0.8691, f1=0.8493, roc_auc=0.8031
+  Fold 3: acc=0.8795, prec=0.8663, rec=0.8795, f1=0.8632, roc_auc=0.8225
+  Fold 4: acc=0.8691, prec=0.8514, rec=0.8691, f1=0.8478, roc_auc=0.8181
+  Fold 5: acc=0.8766, prec=0.8625, rec=0.8766, f1=0.8583, roc_auc=0.7990
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8737 | std=0.0046
+  precision : mean=0.8582 | std=0.0068
+  recall    : mean=0.8737 | std=0.0046
+  f1_score  : mean=0.8545 | std=0.0064
+  roc_auc   : mean=0.8105 | std=0.0099
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8727
+Precision : 0.8558
+Recall    : 0.8727
+F1-Score  : 0.8506
+ROC-AUC   : 0.8016
+
+Confusion Matrix:
+[[3059   76]
+ [ 395  169]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.98      0.93      3135
+           1       0.69      0.30      0.42       564
+
+    accuracy                           0.87      3699
+   macro avg       0.79      0.64      0.67      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8605, prec=0.8463, rec=0.8605, f1=0.8509, roc_auc=0.8266
+  Fold 2: acc=0.8696, prec=0.8565, rec=0.8696, f1=0.8601, roc_auc=0.8458
+  Fold 3: acc=0.8650, prec=0.8526, rec=0.8650, f1=0.8566, roc_auc=0.8368
+  Fold 4: acc=0.8627, prec=0.8496, rec=0.8627, f1=0.8539, roc_auc=0.8475
+  Fold 5: acc=0.8598, prec=0.8442, rec=0.8598, f1=0.8488, roc_auc=0.8464
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8635 | std=0.0040
+  precision : mean=0.8498 | std=0.0049
+  recall    : mean=0.8635 | std=0.0040
+  f1_score  : mean=0.8541 | std=0.0045
+  roc_auc   : mean=0.8406 | std=0.0089
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8613
+Precision : 0.8436
+Recall    : 0.8613
+F1-Score  : 0.8483
+ROC-AUC   : 0.8433
+
+Confusion Matrix:
+[[2980  155]
+ [ 358  206]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.95      0.92      3135
+           1       0.57      0.37      0.45       564
+
+    accuracy                           0.86      3699
+   macro avg       0.73      0.66      0.68      3699
+weighted avg       0.84      0.86      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.869192   0.852205  0.869192  0.845061  0.831203      0.002376       0.003812    0.002376      0.003890     0.006255
+1                  SVM  0.873711   0.858167  0.873711  0.854472  0.810507      0.004619       0.006758    0.004619      0.006374     0.009891
+2              XGBoost  0.863516   0.849831  0.863516  0.854059  0.840597      0.003990       0.004905    0.003990      0.004497     0.008923
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.874290   0.859234  0.874290  0.850508  0.823699
+1                  SVM  0.872668   0.855779  0.872668  0.850646  0.801644
+2              XGBoost  0.861314   0.843636  0.861314  0.848271  0.843282
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_8
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8662, prec=0.8484, rec=0.8662, f1=0.8383, roc_auc=0.8175
+  Fold 2: acc=0.8708, prec=0.8562, rec=0.8708, f1=0.8441, roc_auc=0.8386
+  Fold 3: acc=0.8633, prec=0.8450, rec=0.8633, f1=0.8307, roc_auc=0.8273
+  Fold 4: acc=0.8644, prec=0.8448, rec=0.8644, f1=0.8368, roc_auc=0.8233
+  Fold 5: acc=0.8702, prec=0.8556, rec=0.8702, f1=0.8433, roc_auc=0.8134
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8670 | std=0.0034
+  precision : mean=0.8500 | std=0.0056
+  recall    : mean=0.8670 | std=0.0034
+  f1_score  : mean=0.8387 | std=0.0054
+  roc_auc   : mean=0.8240 | std=0.0097
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8708
+Precision : 0.8562
+Recall    : 0.8708
+F1-Score  : 0.8414
+ROC-AUC   : 0.8323
+
+Confusion Matrix:
+[[3087   48]
+ [ 430  134]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.74      0.24      0.36       564
+
+    accuracy                           0.87      3699
+   macro avg       0.81      0.61      0.64      3699
+weighted avg       0.86      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8645, prec=0.8453, rec=0.8645, f1=0.8359, roc_auc=0.7918
+  Fold 2: acc=0.8824, prec=0.8729, rec=0.8824, f1=0.8618, roc_auc=0.8160
+  Fold 3: acc=0.8766, prec=0.8670, rec=0.8766, f1=0.8513, roc_auc=0.8012
+  Fold 4: acc=0.8685, prec=0.8529, rec=0.8685, f1=0.8405, roc_auc=0.8134
+  Fold 5: acc=0.8702, prec=0.8540, rec=0.8702, f1=0.8461, roc_auc=0.8061
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8724 | std=0.0071
+  precision : mean=0.8584 | std=0.0113
+  recall    : mean=0.8724 | std=0.0071
+  f1_score  : mean=0.8471 | std=0.0100
+  roc_auc   : mean=0.8057 | std=0.0098
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8692
+Precision : 0.8512
+Recall    : 0.8692
+F1-Score  : 0.8423
+ROC-AUC   : 0.7987
+
+Confusion Matrix:
+[[3072   63]
+ [ 421  143]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.69      0.25      0.37       564
+
+    accuracy                           0.87      3699
+   macro avg       0.79      0.62      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8645, prec=0.8480, rec=0.8645, f1=0.8516, roc_auc=0.8237
+  Fold 2: acc=0.8650, prec=0.8489, rec=0.8650, f1=0.8526, roc_auc=0.8240
+  Fold 3: acc=0.8679, prec=0.8515, rec=0.8679, f1=0.8540, roc_auc=0.8197
+  Fold 4: acc=0.8725, prec=0.8578, rec=0.8725, f1=0.8598, roc_auc=0.8353
+  Fold 5: acc=0.8673, prec=0.8526, rec=0.8673, f1=0.8561, roc_auc=0.8066
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8675 | std=0.0032
+  precision : mean=0.8517 | std=0.0039
+  recall    : mean=0.8675 | std=0.0032
+  f1_score  : mean=0.8548 | std=0.0032
+  roc_auc   : mean=0.8218 | std=0.0103
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8716
+Precision : 0.8567
+Recall    : 0.8716
+F1-Score  : 0.8598
+ROC-AUC   : 0.8345
+
+Confusion Matrix:
+[[2997  138]
+ [ 337  227]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.96      0.93      3135
+           1       0.62      0.40      0.49       564
+
+    accuracy                           0.87      3699
+   macro avg       0.76      0.68      0.71      3699
+weighted avg       0.86      0.87      0.86      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.866991   0.850017  0.866991  0.838656  0.824027      0.003389       0.005579    0.003389      0.005446     0.009748
+1                  SVM  0.872437   0.858436  0.872437  0.847132  0.805714      0.007067       0.011254    0.007067      0.010041     0.009758
+2              XGBoost  0.867455   0.851735  0.867455  0.854830  0.821845      0.003192       0.003851    0.003192      0.003249     0.010329
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.870776   0.856166  0.870776  0.841401  0.832310
+1                  SVM  0.869154   0.851220  0.869154  0.842270  0.798686
+2              XGBoost  0.871587   0.856685  0.871587  0.859808  0.834532
+
+
+
+############################################################
+# DATASET: shoppers_mrmd_9
+############################################################
+
+Target column (dari shoppers.json, index [17]): 'Revenue'
+
+Kolom kategorikal terdeteksi: ['Month', 'VisitorType', 'Weekend']
+Kolom numerik terdeteksi: ['Administrative', 'Administrative_Duration', 'Informational', 'Informational_Duration', 'ProductRelated', 'ProductRelated_Duration', 'BounceRates', 'ExitRates', 'PageValues', 'SpecialDay', 'OperatingSystems', 'Browser', 'Region', 'TrafficType']
+
+===== Logistic Regression =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8639, prec=0.8475, rec=0.8639, f1=0.8301, roc_auc=0.7858
+  Fold 2: acc=0.8656, prec=0.8506, rec=0.8656, f1=0.8322, roc_auc=0.8157
+  Fold 3: acc=0.8656, prec=0.8474, rec=0.8656, f1=0.8372, roc_auc=0.8092
+  Fold 4: acc=0.8650, prec=0.8464, rec=0.8650, f1=0.8363, roc_auc=0.8131
+  Fold 5: acc=0.8696, prec=0.8555, rec=0.8696, f1=0.8414, roc_auc=0.8130
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8659 | std=0.0022
+  precision : mean=0.8495 | std=0.0037
+  recall    : mean=0.8659 | std=0.0022
+  f1_score  : mean=0.8355 | std=0.0044
+  roc_auc   : mean=0.8074 | std=0.0123
+
+===== Evaluasi Logistic Regression (Test Set) =====
+Accuracy  : 0.8697
+Precision : 0.8528
+Recall    : 0.8697
+F1-Score  : 0.8418
+ROC-AUC   : 0.8166
+
+Confusion Matrix:
+[[3078   57]
+ [ 425  139]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.71      0.25      0.37       564
+
+    accuracy                           0.87      3699
+   macro avg       0.79      0.61      0.65      3699
+weighted avg       0.85      0.87      0.84      3699
+
+
+
+===== SVM =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8686, prec=0.8512, rec=0.8686, f1=0.8439, roc_auc=0.7438
+  Fold 2: acc=0.8673, prec=0.8519, rec=0.8673, f1=0.8368, roc_auc=0.7461
+  Fold 3: acc=0.8749, prec=0.8605, rec=0.8749, f1=0.8541, roc_auc=0.7818
+  Fold 4: acc=0.8667, prec=0.8483, rec=0.8667, f1=0.8415, roc_auc=0.7723
+  Fold 5: acc=0.8725, prec=0.8566, rec=0.8725, f1=0.8526, roc_auc=0.7901
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8700 | std=0.0035
+  precision : mean=0.8537 | std=0.0048
+  recall    : mean=0.8700 | std=0.0035
+  f1_score  : mean=0.8458 | std=0.0074
+  roc_auc   : mean=0.7668 | std=0.0210
+
+===== Evaluasi SVM (Test Set) =====
+Accuracy  : 0.8727
+Precision : 0.8563
+Recall    : 0.8727
+F1-Score  : 0.8490
+ROC-AUC   : 0.7770
+
+Confusion Matrix:
+[[3067   68]
+ [ 403  161]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      3135
+           1       0.70      0.29      0.41       564
+
+    accuracy                           0.87      3699
+   macro avg       0.79      0.63      0.67      3699
+weighted avg       0.86      0.87      0.85      3699
+
+
+
+===== XGBoost =====
+--- Validasi (5-fold Cross-Validation, dari data training) ---
+  Fold 1: acc=0.8686, prec=0.8530, rec=0.8686, f1=0.8559, roc_auc=0.8151
+  Fold 2: acc=0.8696, prec=0.8530, rec=0.8696, f1=0.8547, roc_auc=0.8202
+  Fold 3: acc=0.8685, prec=0.8529, rec=0.8685, f1=0.8558, roc_auc=0.8347
+  Fold 4: acc=0.8691, prec=0.8535, rec=0.8691, f1=0.8563, roc_auc=0.8281
+  Fold 5: acc=0.8749, prec=0.8600, rec=0.8749, f1=0.8601, roc_auc=0.8218
+
+Rata-rata 5-fold Cross-Validation:
+  accuracy  : mean=0.8701 | std=0.0027
+  precision : mean=0.8545 | std=0.0031
+  recall    : mean=0.8701 | std=0.0027
+  f1_score  : mean=0.8565 | std=0.0021
+  roc_auc   : mean=0.8240 | std=0.0076
+
+===== Evaluasi XGBoost (Test Set) =====
+Accuracy  : 0.8632
+Precision : 0.8465
+Recall    : 0.8632
+F1-Score  : 0.8509
+ROC-AUC   : 0.8320
+
+Confusion Matrix:
+[[2980  155]
+ [ 351  213]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.95      0.92      3135
+           1       0.58      0.38      0.46       564
+
+    accuracy                           0.86      3699
+   macro avg       0.74      0.66      0.69      3699
+weighted avg       0.85      0.86      0.85      3699
+
+
+
+===== Ringkasan VALIDASI (Cross-Validation, dari data training) =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0  Logistic Regression  0.865949   0.849480  0.865949  0.835453  0.807358      0.002172       0.003719    0.002172      0.004434     0.012255
+1                  SVM  0.870004   0.853708  0.870004  0.845821  0.766828      0.003531       0.004817    0.003531      0.007383     0.020951
+2              XGBoost  0.870120   0.854484  0.870120  0.856541  0.823961      0.002688       0.003085    0.002688      0.002053     0.007582
+
+===== Ringkasan TEST SET =====
+            model_name  accuracy  precision    recall  f1_score   roc_auc
+0  Logistic Regression  0.869695   0.852832  0.869695  0.841759  0.816575
+1                  SVM  0.872668   0.856294  0.872668  0.849002  0.776987
+2              XGBoost  0.863206   0.846472  0.863206  0.850896  0.831955
+
+
+
+============================================================
+RINGKASAN AKHIR - VALIDASI (Cross-Validation, dari data training)
+============================================================
+            dataset           model_name  accuracy  precision    recall  ...  accuracy_std  precision_std  recall_std  f1_score_std  roc_auc_std
+0   shoppers_diff_0  Logistic Regression  0.855868   0.832962  0.855868  ...      0.002274       0.005016    0.002274      0.005774     0.011928
+1   shoppers_diff_0                  SVM  0.853899   0.835847  0.853899  ...      0.003424       0.011166    0.003424      0.006170     0.025926
+2   shoppers_diff_0              XGBoost  0.843240   0.809521  0.843240  ...      0.005914       0.010344    0.005914      0.007936     0.014092
+3   shoppers_diff_1  Logistic Regression  0.858302   0.836685  0.858302  ...      0.002821       0.005094    0.002821      0.006536     0.017102
+4   shoppers_diff_1                  SVM  0.858418   0.845823  0.858418  ...      0.005279       0.016162    0.005279      0.008309     0.027361
+5   shoppers_diff_1              XGBoost  0.847411   0.818516  0.847411  ...      0.006420       0.010745    0.006420      0.008869     0.008994
+6   shoppers_diff_2  Logistic Regression  0.853667   0.826992  0.853667  ...      0.001623       0.004713    0.001623      0.002400     0.009592
+7   shoppers_diff_2                  SVM  0.852972   0.841615  0.852972  ...      0.001784       0.010858    0.001784      0.001893     0.020059
+8   shoppers_diff_2              XGBoost  0.841038   0.803023  0.841038  ...      0.004089       0.006691    0.004089      0.004433     0.015056
+9   shoppers_diff_3  Logistic Regression  0.854477   0.830659  0.854477  ...      0.003538       0.010684    0.003538      0.004825     0.017966
+10  shoppers_diff_3                  SVM  0.851697   0.833951  0.851697  ...      0.001928       0.010896    0.001928      0.003371     0.020606
+11  shoppers_diff_3              XGBoost  0.841154   0.805700  0.841154  ...      0.005838       0.008426    0.005838      0.006408     0.023253
+12  shoppers_diff_4  Logistic Regression  0.852046   0.824035  0.852046  ...      0.004096       0.013997    0.004096      0.005646     0.015479
+13  shoppers_diff_4                  SVM  0.853204   0.838452  0.853204  ...      0.003861       0.018691    0.003861      0.005928     0.024917
+14  shoppers_diff_4              XGBoost  0.840692   0.805202  0.840692  ...      0.007414       0.011553    0.007414      0.008119     0.008974
+15  shoppers_diff_5  Logistic Regression  0.855752   0.832168  0.855752  ...      0.003936       0.010209    0.003936      0.005968     0.011515
+16  shoppers_diff_5                  SVM  0.854130   0.834525  0.854130  ...      0.003388       0.012690    0.003388      0.004317     0.014747
+17  shoppers_diff_5              XGBoost  0.840575   0.806634  0.840575  ...      0.007662       0.011417    0.007662      0.008297     0.013116
+18  shoppers_diff_6  Logistic Regression  0.857143   0.834273  0.857143  ...      0.004603       0.009286    0.004603      0.008577     0.017012
+19  shoppers_diff_6                  SVM  0.855522   0.839755  0.855522  ...      0.004195       0.015282    0.004195      0.006191     0.021376
+20  shoppers_diff_6              XGBoost  0.848917   0.820222  0.848917  ...      0.003150       0.004216    0.003150      0.002882     0.009639
+21  shoppers_diff_7  Logistic Regression  0.852973   0.825090  0.852973  ...      0.003840       0.010305    0.003840      0.004497     0.009848
+22  shoppers_diff_7                  SVM  0.851697   0.831386  0.851697  ...      0.001461       0.004858    0.001461      0.003588     0.010273
+23  shoppers_diff_7              XGBoost  0.836057   0.798002  0.836057  ...      0.007350       0.008030    0.007350      0.004942     0.012181
+24  shoppers_diff_8  Logistic Regression  0.855057   0.832838  0.855057  ...      0.005247       0.017608    0.005247      0.006262     0.020175
+25  shoppers_diff_8                  SVM  0.854015   0.842108  0.854015  ...      0.002619       0.014501    0.002619      0.004061     0.010546
+26  shoppers_diff_8              XGBoost  0.840574   0.806788  0.840574  ...      0.006804       0.010452    0.006804      0.007771     0.006974
+27  shoppers_diff_9  Logistic Regression  0.852508   0.823090  0.852508  ...      0.005350       0.015734    0.005350      0.008667     0.017131
+28  shoppers_diff_9                  SVM  0.850654   0.825432  0.850654  ...      0.004374       0.022501    0.004374      0.008095     0.015168
+29  shoppers_diff_9              XGBoost  0.839763   0.805844  0.839763  ...      0.009371       0.013885    0.009371      0.009842     0.020184
+30  shoppers_mrmd_0  Logistic Regression  0.866064   0.848677  0.866064  ...      0.005266       0.010182    0.005266      0.007432     0.013927
+31  shoppers_mrmd_0                  SVM  0.867571   0.849683  0.867571  ...      0.005457       0.009139    0.005457      0.007310     0.016680
+32  shoppers_mrmd_0              XGBoost  0.864906   0.847563  0.864906  ...      0.004633       0.006043    0.004633      0.005358     0.009652
+33  shoppers_mrmd_1  Logistic Regression  0.864675   0.844466  0.864675  ...      0.006065       0.009836    0.006065      0.008406     0.014233
+34  shoppers_mrmd_1                  SVM  0.863632   0.844597  0.863632  ...      0.006736       0.013322    0.006736      0.010063     0.018890
+35  shoppers_mrmd_1              XGBoost  0.862009   0.846082  0.862009  ...      0.007067       0.008885    0.007067      0.008195     0.018918
+36  shoppers_mrmd_2  Logistic Regression  0.871394   0.855782  0.871394  ...      0.002461       0.004429    0.002461      0.003297     0.008056
+37  shoppers_mrmd_2                  SVM  0.869192   0.853080  0.869192  ...      0.001255       0.001697    0.001255      0.003644     0.011832
+38  shoppers_mrmd_2              XGBoost  0.866875   0.850733  0.866875  ...      0.002476       0.003274    0.002476      0.002934     0.015651
+39  shoppers_mrmd_3  Logistic Regression  0.865485   0.846866  0.865485  ...      0.007836       0.013107    0.007836      0.010389     0.020225
+40  shoppers_mrmd_3                  SVM  0.865602   0.849754  0.865602  ...      0.008645       0.016173    0.008645      0.012258     0.030217
+41  shoppers_mrmd_3              XGBoost  0.863631   0.846332  0.863631  ...      0.007372       0.008309    0.007372      0.006887     0.014045
+42  shoppers_mrmd_4  Logistic Regression  0.866296   0.848352  0.866296  ...      0.003192       0.005275    0.003192      0.005315     0.007851
+43  shoppers_mrmd_4                  SVM  0.867571   0.853511  0.867571  ...      0.003249       0.005499    0.003249      0.005196     0.017288
+44  shoppers_mrmd_4              XGBoost  0.858649   0.839420  0.858649  ...      0.004123       0.004954    0.004123      0.004336     0.005960
+45  shoppers_mrmd_5  Logistic Regression  0.868729   0.852188  0.868729  ...      0.004818       0.007668    0.004818      0.006911     0.018710
+46  shoppers_mrmd_5                  SVM  0.868845   0.851352  0.868845  ...      0.004172       0.006386    0.004172      0.006626     0.019745
+47  shoppers_mrmd_5              XGBoost  0.862472   0.847872  0.862472  ...      0.002602       0.004218    0.002602      0.003977     0.008523
+48  shoppers_mrmd_6  Logistic Regression  0.866876   0.850837  0.866876  ...      0.007571       0.015852    0.007571      0.009089     0.016460
+49  shoppers_mrmd_6                  SVM  0.868614   0.852662  0.868614  ...      0.009841       0.018325    0.009841      0.012821     0.021448
+50  shoppers_mrmd_6              XGBoost  0.865717   0.848961  0.865717  ...      0.004318       0.005196    0.004318      0.004252     0.016118
+51  shoppers_mrmd_7  Logistic Regression  0.869192   0.852205  0.869192  ...      0.002376       0.003812    0.002376      0.003890     0.006255
+52  shoppers_mrmd_7                  SVM  0.873711   0.858167  0.873711  ...      0.004619       0.006758    0.004619      0.006374     0.009891
+53  shoppers_mrmd_7              XGBoost  0.863516   0.849831  0.863516  ...      0.003990       0.004905    0.003990      0.004497     0.008923
+54  shoppers_mrmd_8  Logistic Regression  0.866991   0.850017  0.866991  ...      0.003389       0.005579    0.003389      0.005446     0.009748
+55  shoppers_mrmd_8                  SVM  0.872437   0.858436  0.872437  ...      0.007067       0.011254    0.007067      0.010041     0.009758
+56  shoppers_mrmd_8              XGBoost  0.867455   0.851735  0.867455  ...      0.003192       0.003851    0.003192      0.003249     0.010329
+57  shoppers_mrmd_9  Logistic Regression  0.865949   0.849480  0.865949  ...      0.002172       0.003719    0.002172      0.004434     0.012255
+58  shoppers_mrmd_9                  SVM  0.870004   0.853708  0.870004  ...      0.003531       0.004817    0.003531      0.007383     0.020951
+59  shoppers_mrmd_9              XGBoost  0.870120   0.854484  0.870120  ...      0.002688       0.003085    0.002688      0.002053     0.007582
+
+[60 rows x 12 columns]
+
+============================================================
+RINGKASAN AKHIR - TEST SET
+============================================================
+            dataset           model_name  accuracy  precision    recall  f1_score   roc_auc
+0   shoppers_diff_0  Logistic Regression  0.861855   0.844963  0.861855  0.821113  0.770103
+1   shoppers_diff_0                  SVM  0.858070   0.841691  0.858070  0.810368  0.646601
+2   shoppers_diff_0              XGBoost  0.848067   0.814798  0.848067  0.819703  0.764018
+3   shoppers_diff_1  Logistic Regression  0.862666   0.845449  0.862666  0.823560  0.774305
+4   shoppers_diff_1                  SVM  0.862395   0.856280  0.862395  0.816847  0.651953
+5   shoppers_diff_1              XGBoost  0.846715   0.812610  0.846715  0.818225  0.753710
+6   shoppers_diff_2  Logistic Regression  0.853474   0.821779  0.853474  0.808031  0.759655
+7   shoppers_diff_2                  SVM  0.854015   0.831866  0.854015  0.800891  0.657536
+8   shoppers_diff_2              XGBoost  0.837794   0.799402  0.837794  0.809355  0.760964
+9   shoppers_diff_3  Logistic Regression  0.856448   0.830212  0.856448  0.813114  0.749886
+10  shoppers_diff_3                  SVM  0.854826   0.837343  0.854826  0.801397  0.652530
+11  shoppers_diff_3              XGBoost  0.838605   0.798407  0.838605  0.808072  0.740577
+12  shoppers_diff_4  Logistic Regression  0.855096   0.827365  0.855096  0.809459  0.766414
+13  shoppers_diff_4                  SVM  0.855637   0.839943  0.855637  0.803104  0.634253
+14  shoppers_diff_4              XGBoost  0.839686   0.801564  0.839686  0.810677  0.750092
+15  shoppers_diff_5  Logistic Regression  0.858610   0.837746  0.858610  0.814929  0.772077
+16  shoppers_diff_5                  SVM  0.856988   0.839547  0.856988  0.807815  0.648134
+17  shoppers_diff_5              XGBoost  0.846986   0.812040  0.846986  0.817136  0.758169
+18  shoppers_diff_6  Logistic Regression  0.858610   0.834278  0.858610  0.818821  0.769255
+19  shoppers_diff_6                  SVM  0.859962   0.847722  0.859962  0.813431  0.643606
+20  shoppers_diff_6              XGBoost  0.850230   0.820647  0.850230  0.825609  0.759754
+21  shoppers_diff_7  Logistic Regression  0.854015   0.822502  0.854015  0.811460  0.766870
+22  shoppers_diff_7                  SVM  0.855637   0.838041  0.855637  0.803890  0.668912
+23  shoppers_diff_7              XGBoost  0.848878   0.814769  0.848878  0.818489  0.751776
+24  shoppers_diff_8  Logistic Regression  0.857529   0.834720  0.857529  0.813173  0.760779
+25  shoppers_diff_8                  SVM  0.856177   0.843780  0.856177  0.803445  0.643767
+26  shoppers_diff_8              XGBoost  0.843471   0.807596  0.843471  0.814892  0.740127
+27  shoppers_diff_9  Logistic Regression  0.858881   0.838000  0.858881  0.815785  0.780089
+28  shoppers_diff_9                  SVM  0.855096   0.844518  0.855096  0.799933  0.647492
+29  shoppers_diff_9              XGBoost  0.838875   0.798731  0.838875  0.808259  0.744675
+30  shoppers_mrmd_0  Logistic Regression  0.866450   0.846180  0.866450  0.839479  0.809459
+31  shoppers_mrmd_0                  SVM  0.874020   0.859060  0.874020  0.849658  0.765532
+32  shoppers_mrmd_0              XGBoost  0.867532   0.850484  0.867532  0.853729  0.833719
+33  shoppers_mrmd_1  Logistic Regression  0.867802   0.848496  0.867802  0.841447  0.840444
+34  shoppers_mrmd_1                  SVM  0.866721   0.851400  0.866721  0.832346  0.810633
+35  shoppers_mrmd_1              XGBoost  0.866450   0.850362  0.866450  0.854278  0.840073
+36  shoppers_mrmd_2  Logistic Regression  0.865910   0.845002  0.865910  0.843453  0.836974
+37  shoppers_mrmd_2                  SVM  0.866991   0.846976  0.866991  0.840817  0.798649
+38  shoppers_mrmd_2              XGBoost  0.867261   0.851668  0.867261  0.855544  0.827500
+39  shoppers_mrmd_3  Logistic Regression  0.866450   0.846453  0.866450  0.838538  0.824478
+40  shoppers_mrmd_3                  SVM  0.871587   0.859471  0.871587  0.840792  0.781822
+41  shoppers_mrmd_3              XGBoost  0.863747   0.845024  0.863747  0.848709  0.829132
+42  shoppers_mrmd_4  Logistic Regression  0.869424   0.851558  0.869424  0.842939  0.831966
+43  shoppers_mrmd_4                  SVM  0.871046   0.856815  0.871046  0.841611  0.785149
+44  shoppers_mrmd_4              XGBoost  0.865639   0.847882  0.865639  0.851393  0.833072
+45  shoppers_mrmd_5  Logistic Regression  0.867532   0.847733  0.867532  0.842360  0.832641
+46  shoppers_mrmd_5                  SVM  0.869695   0.851263  0.869695  0.845583  0.813121
+47  shoppers_mrmd_5              XGBoost  0.865639   0.850059  0.865639  0.854235  0.824059
+48  shoppers_mrmd_6  Logistic Regression  0.872939   0.858256  0.872939  0.846608  0.819224
+49  shoppers_mrmd_6                  SVM  0.872939   0.856883  0.872939  0.849007  0.808047
+50  shoppers_mrmd_6              XGBoost  0.869695   0.853858  0.869695  0.857056  0.843349
+51  shoppers_mrmd_7  Logistic Regression  0.874290   0.859234  0.874290  0.850508  0.823699
+52  shoppers_mrmd_7                  SVM  0.872668   0.855779  0.872668  0.850646  0.801644
+53  shoppers_mrmd_7              XGBoost  0.861314   0.843636  0.861314  0.848271  0.843282
+54  shoppers_mrmd_8  Logistic Regression  0.870776   0.856166  0.870776  0.841401  0.832310
+55  shoppers_mrmd_8                  SVM  0.869154   0.851220  0.869154  0.842270  0.798686
+56  shoppers_mrmd_8              XGBoost  0.871587   0.856685  0.871587  0.859808  0.834532
+57  shoppers_mrmd_9  Logistic Regression  0.869695   0.852832  0.869695  0.841759  0.816575
+58  shoppers_mrmd_9                  SVM  0.872668   0.856294  0.872668  0.849002  0.776987
+59  shoppers_mrmd_9              XGBoost  0.863206   0.846472  0.863206  0.850896  0.831955
