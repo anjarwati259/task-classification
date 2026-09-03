@@ -634,15 +634,15 @@ if __name__ == "__main__":
     dataset_list = (
         # Struktur lama: SHOPPERS/MCAR/60/CSV/train_impute_{i}.csv, dst
         # generate_dataset_list(folder_name="SHOPPERS", info_name="shoppers")
-        # + generate_dataset_list(folder_name="ADULT", info_name="adult")
+        generate_dataset_list(folder_name="ADULT", info_name="adult")
 
         # Struktur baru: baselines/imputed_csv/shoppers/mask_i/train|test/{method}.csv
-        generate_dataset_list_hyperimpute(dataset_name="shoppers", info_name="shoppers")
-        # + generate_dataset_list_hyperimpute(dataset_name="adult", info_name="adult")
+        # generate_dataset_list_hyperimpute(dataset_name="shoppers", info_name="shoppers")
+        + generate_dataset_list_hyperimpute(dataset_name="adult", info_name="adult")
     )
 
     all_summaries = run_multiple_datasets(
         dataset_list,
         cv=5,
-        output_file="hasil_klasifikasi_baseline.txt"
+        output_file="hasil_klasifikasi_adult.txt"
     )
