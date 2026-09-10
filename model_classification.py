@@ -393,20 +393,53 @@ def get_target_col_name(df, info):
 # Path RELATIVE terhadap folder utama (misal "Test-Klasifikasi").
 # Kalau folder utama diganti nama, TIDAK perlu ubah kode ini,
 # asal script tetap dijalankan dari dalam folder utama tsb.
-# Sub-struktur folder (MCAR/60/CSV) diasumsikan sama untuk semua dataset;
-# yang beda cuma nama folder dataset-nya sendiri (SHOPPERS, ADULT, dst).
 N_FILES = 10  # jumlah file per kategori (index 0 - 9)
+
+
+def build_dataset_entries(train_dir, test_dir, train_pattern, test_pattern,
+                           info_name, n_files=N_FILES, name_prefix=None, sep=","):
+    """
+    FUNCTION GENERIC (CORE) untuk generate list dataset dari SATU pola path/nama file.
+    Semua "generate_dataset_list_*" lain di bawah cukup memanggil function ini
+    dengan parameter berbeda, supaya tidak perlu tulis ulang loop yang sama
+    berkali-kali untuk tiap struktur folder baru.
+
+    Parameters:
+    - train_dir: str, folder tempat file train berada (relative path)
+    - test_dir: str, folder tempat file test berada (relative path)
+    - train_pattern: str, pola nama file train, pakai placeholder "{i}",
+      contoh "train_impute_{i}.csv" atau "in_sample_result_mask{i}.txt"
+    - test_pattern: str, pola nama file test, sama aturannya dengan train_pattern
+    - info_name: str, nama file json (tanpa .json) di datasets/Info/, untuk resolve target
+    - n_files: int, jumlah file/index yang di-loop (default 10, index 0-9)
+    - name_prefix: str, prefix nama dataset di summary (default = info_name)
+    - sep: str, delimiter file (default "," / koma). Ubah kalau file .txt-nya
+      pakai delimiter lain (misal "\\t" untuk tab, atau ";" )
+
+    Returns:
+    - list of dict, format: {"name", "train_path", "test_path", "info_name", "sep"}
+    """
+    prefix = name_prefix or info_name
+    dataset_list = []
+
+    for i in range(n_files):
+        dataset_list.append({
+            "name": f"{prefix}_{i}",
+            "train_path": os.path.join(train_dir, train_pattern.format(i=i)),
+            "test_path": os.path.join(test_dir, test_pattern.format(i=i)),
+            "info_name": info_name,
+            "sep": sep,
+        })
+
+    return dataset_list
 
 
 def generate_dataset_list(folder_name, info_name, n_files=N_FILES,
                            sub_path=("MCAR", "60", "CSV")):
     """
-    Generate list dataset otomatis untuk kategori 'diff' dan 'mrmd',
-    untuk SATU dataset (misal SHOPPERS atau ADULT).
-
-    Pola nama file:
-    - diff : train_impute_{i}.csv       / test_impute_{i}.csv
-    - mrmd : train_impute_mrmd_{i}.csv  / test_impute_mrmd_{i}.csv
+    Wrapper untuk struktur folder yang SUDAH ADA sebelumnya, contoh:
+    SHOPPERS/MCAR/60/CSV/train_impute_{i}.csv, test_impute_{i}.csv (kategori diff)
+    SHOPPERS/MCAR/60/CSV/train_impute_mrmd_{i}.csv, ... (kategori mrmd)
 
     Parameters:
     - folder_name: str, nama folder dataset di level utama, contoh "SHOPPERS", "ADULT"
@@ -415,31 +448,84 @@ def generate_dataset_list(folder_name, info_name, n_files=N_FILES,
     - sub_path: tuple, sub-folder di bawah folder_name sebelum ke CSV, default ("MCAR","60","CSV")
 
     Returns:
-    - list of dict, siap digabung dengan hasil generate_dataset_list() dataset lain
+    - list of dict, siap digabung dengan hasil generate_dataset_list*() lainnya
     """
     base_dir = os.path.join(folder_name, *sub_path)
-    dataset_list = []
 
-    # ---- Kategori: diff ----
-    for i in range(n_files):
-        dataset_list.append({
-            "name": f"{info_name}_diff_{i}",
-            "train_path": os.path.join(base_dir, f"train_impute_{i}.csv"),
-            "test_path": os.path.join(base_dir, f"test_impute_{i}.csv"),
-            "info_name": info_name,
-        })
-
-    # ---- Kategori: mrmd ----
-    for i in range(n_files):
-        dataset_list.append({
-            "name": f"{info_name}_mrmd_{i}",
-            "train_path": os.path.join(base_dir, f"train_impute_mrmd_{i}.csv"),
-            "test_path": os.path.join(base_dir, f"test_impute_mrmd_{i}.csv"),
-            "info_name": info_name,
-        })
+    diff_list = build_dataset_entries(
+        train_dir=base_dir, test_dir=base_dir,
+        train_pattern="train_impute_{i}.csv", test_pattern="test_impute_{i}.csv",
+        info_name=info_name, n_files=n_files, name_prefix=f"{info_name}_diff",
+    )
+    mrmd_list = build_dataset_entries(
+        train_dir=base_dir, test_dir=base_dir,
+        train_pattern="train_impute_mrmd_{i}.csv", test_pattern="test_impute_mrmd_{i}.csv",
+        info_name=info_name, n_files=n_files, name_prefix=f"{info_name}_mrmd",
+    )
 
     # Kategori 'mice' belum ada, jadi diabaikan dulu.
-    # Kalau nanti sudah tersedia, tinggal tambahkan blok loop serupa di sini.
+    # Kalau nanti sudah tersedia, tinggal tambahkan blok build_dataset_entries() lagi di sini.
+
+    return diff_list + mrmd_list
+
+
+def generate_dataset_list_hyperimpute(dataset_name, info_name, method_folder="hyperimpute",
+                                       missing_mechanism="MCAR", n_masks=N_FILES,
+                                       impute_methods=("gain","hyperimpute","mean","median"),
+                                       train_subdir="train", test_subdir="test", ext=".csv"):
+    """
+    Wrapper untuk struktur folder hasil imputasi, contoh:
+    baselines/imputed_csv/shoppers/mask_0/train/sklearn_missforest.csv
+    baselines/imputed_csv/shoppers/mask_0/test/sklearn_missforest.csv
+    ... dst untuk mask_1, mask_2, ...
+
+    Jadi ada 2 dimensi yang di-loop: mask index (0..n_masks-1) DAN metode
+    imputasi (sklearn_missforest, mice, softimpute, dst) — setiap kombinasi
+    jadi satu dataset.
+
+    Parameters:
+    - dataset_name: str, nama sub-folder dataset, contoh "shoppers", "adult"
+    - info_name: str, nama file json (tanpa .json) di datasets/Info/
+    - method_folder: str, (tidak dipakai di path saat ini, disimpan untuk kompatibilitas
+      kalau strukturnya ditambah lagi nanti)
+    - missing_mechanism: str, (tidak dipakai di path saat ini, sama seperti di atas)
+    - n_masks: int, jumlah folder mask_i (default 10, index 0-9)
+    - impute_methods: tuple/list, nama-nama file metode imputasi (tanpa ekstensi).
+      PENTING: kalau cuma satu metode, tetap tulis pakai tanda koma di dalam
+      tuple, contoh ("sklearn_missforest",) — BUKAN ("sklearn_missforest") tanpa
+      koma, karena tanpa koma itu dianggap string biasa (bukan tuple), dan
+      saat di-loop akan pecah jadi per-huruf ('s', 'k', 'l', ...).
+    - train_subdir: str, nama sub-folder train di dalam tiap mask_i, default "train"
+    - test_subdir: str, nama sub-folder test di dalam tiap mask_i, default "test"
+    - ext: str, ekstensi file, default ".csv"
+
+    Returns:
+    - list of dict, siap digabung dengan hasil generate_dataset_list*() lainnya
+    """
+    # Path disederhanakan sesuai struktur folder yang dipakai saat ini:
+    # baselines/imputed_csv/{dataset_name}/mask_{i}/{train|test}/{method}.csv
+    root = os.path.join("baselines", "imputed_csv", dataset_name)
+
+    # Jaga-jaga kalau impute_methods ke-pass sebagai string biasa (bukan tuple/list),
+    # otomatis dibungkus jadi tuple 1 elemen supaya tidak ke-loop per-karakter.
+    if isinstance(impute_methods, str):
+        impute_methods = (impute_methods,)
+
+    dataset_list = []
+
+    for i in range(n_masks):
+        mask_dir = os.path.join(root, f"mask_{i}")
+        train_dir = os.path.join(mask_dir, train_subdir)
+        test_dir = os.path.join(mask_dir, test_subdir)
+
+        for method in impute_methods:
+            dataset_list.append({
+                "name": f"{info_name}_{method}_mask{i}",
+                "train_path": os.path.join(train_dir, f"{method}{ext}"),
+                "test_path": os.path.join(test_dir, f"{method}{ext}"),
+                "info_name": info_name,
+                "sep": ",",
+            })
 
     return dataset_list
 
@@ -447,7 +533,7 @@ def generate_dataset_list(folder_name, info_name, n_files=N_FILES,
 # ============================================
 # 10. FUNCTION: LOOPING SEMUA DATASET + SIMPAN HASIL KE TXT
 # ============================================
-def run_multiple_datasets(dataset_list, cv=5, output_file="hasil_klasifikasi.txt"):
+def run_multiple_datasets(dataset_list, cv=5, output_file="hasil_klasifikasi_baseline.txt"):
     """
     Menjalankan run_all_models() untuk beberapa dataset sekaligus (looping),
     lalu menyimpan seluruh log proses + ringkasan hasil ke satu file .txt.
@@ -487,14 +573,15 @@ def run_multiple_datasets(dataset_list, cv=5, output_file="hasil_klasifikasi.txt
                 train_path = dataset["train_path"]
                 test_path = dataset["test_path"]
                 info_name = dataset["info_name"]
+                sep = dataset.get("sep", ",")
 
                 print("#" * 60)
                 print(f"# DATASET: {name}")
                 print("#" * 60)
                 print()
 
-                df_train = pd.read_csv(train_path)
-                df_test = pd.read_csv(test_path)
+                df_train = pd.read_csv(train_path, sep=sep)
+                df_test = pd.read_csv(test_path, sep=sep)
 
                 # ---- Tentukan kolom target dari JSON (datasets/Info/{info_name}.json) ----
                 info = load_dataset_info(info_name)
@@ -542,16 +629,20 @@ def run_multiple_datasets(dataset_list, cv=5, output_file="hasil_klasifikasi.txt
 # ============================================
 if __name__ == "__main__":
 
-    # Gabungkan dataset SHOPPERS dan ADULT (keduanya pakai pola path/file yang sama).
-    # Kalau mau tambah dataset lain lagi, tinggal tambahkan pemanggilan
-    # generate_dataset_list() baru dan gabungkan pakai "+".
+    # Gabungkan beberapa sumber dataset sekaligus, meski pola path/nama filenya
+    # berbeda-beda — tinggal panggil generator yang sesuai lalu gabung pakai "+".
     dataset_list = (
-        generate_dataset_list(folder_name="SHOPPERS", info_name="shoppers")
-        # + generate_dataset_list(folder_name="ADULT", info_name="adult")
+        # Struktur lama: SHOPPERS/MCAR/60/CSV/train_impute_{i}.csv, dst
+        # generate_dataset_list(folder_name="SHOPPERS", info_name="shoppers")
+        # generate_dataset_list(folder_name="ADULT", info_name="adult")
+
+        # Struktur baru: baselines/imputed_csv/shoppers/mask_i/train|test/{method}.csv
+        generate_dataset_list_hyperimpute(dataset_name="shoppers", info_name="shoppers")
+        + generate_dataset_list_hyperimpute(dataset_name="adult", info_name="adult")
     )
 
     all_summaries = run_multiple_datasets(
         dataset_list,
         cv=5,
-        output_file="hasil_klasifikasi.txt"
+        output_file="hasil_klasifikasi_v1.txt"
     )
